@@ -14,17 +14,14 @@ RUN yarn build \
  && cp -r scripts/tandem-import/assets scripts/tandem-import/voucher-template dist/scripts/tandem-import/ \
  && ln -s . dist/src
 
-# Production dependencies only (+ patches, applied with the build stage's patch-package)
+# Runtime dependencies: the (already patched) build node_modules, pruned to what dist/** can reach
+# (scripts/prune-runtime-deps.js – drops dev deps and the dashboard's build-time frontend packages)
 FROM node:24-slim AS deps
 WORKDIR /usr/src/app
-COPY package.json yarn.lock ./
-COPY patches ./patches
-RUN --mount=type=cache,target=/usr/local/share/.cache/yarn \
-    yarn install --frozen-lockfile --production --ignore-scripts
-COPY --from=build /usr/src/app/node_modules/patch-package /tmp/patch-package
-COPY --from=build /usr/src/app/node_modules /tmp/build_modules
-RUN NODE_PATH=/tmp/build_modules node /tmp/patch-package/index.js \
- && rm -rf /tmp/patch-package /tmp/build_modules
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/dist ./dist
+COPY scripts/prune-runtime-deps.js ./prune-runtime-deps.js
+RUN node prune-runtime-deps.js . --report
 
 # Runtime
 FROM node:24-slim
