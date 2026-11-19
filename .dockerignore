@@ -9,3 +9,13 @@ deploy.js
 condgen.ts
 node_modules
 README.md
+# secrets and local artefacts must never end up in the image
+.env
+.env.*
+!.env.example
+**/.env
+dist
+static/email/test-emails
+scripts/tandem-import/out
+*.sql
+*.sql.gz
