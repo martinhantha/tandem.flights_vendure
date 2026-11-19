@@ -1,4 +1,4 @@
-import { DefaultJobQueuePlugin, VendureConfig, LogLevel, DefaultSchedulerPlugin, LanguageCode } from "@vendure/core"
+import { DefaultJobQueuePlugin, DefaultSearchPlugin, VendureConfig, LogLevel, DefaultSchedulerPlugin, LanguageCode } from "@vendure/core"
 import bodyParser from "body-parser"
 import { EmailPlugin, EmailPluginDevModeOptions, EmailPluginOptions, FileBasedTemplateLoader } from "@vendure/email-plugin"
 import { HardenPlugin } from "@vendure/harden-plugin"
@@ -9,7 +9,6 @@ import { HtPlugin } from "./plugins/ht-plugin/ht.plugin"
 import { CustomTranslationsPlugin } from "./plugins/custom-translations-plugin/custom-translations.plugin"
 import { CustomEmailPlugin } from "./plugins/custom-email-plugin/custom-email.plugin"
 import { customEmailHandlers } from "./plugins/custom-email-plugin/handler/email-handlers"
-import { ElasticsearchPlugin, createElasticsearchAdapter } from "@vendure-community/elasticsearch-plugin"
 import { DashboardPlugin } from "@vendure/dashboard/plugin"
 import { RateLimitPlugin } from "./plugins/rate-limit-plugin/rate-limit.plugin"
 import { CustomLogger } from "./plugins/ht-plugin/handler/custom-logger"
@@ -37,9 +36,24 @@ const smtpSecure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === "true" 
 const DEFAULT_CORS_ORIGINS = ["https://www.tandem.flights", "https://tandem.flights", "https://cms.tandem.flights", "http://localhost:3000", "http://localhost:3001"]
 const corsOrigins = (process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(",") : DEFAULT_CORS_ORIGINS).map((origin) => origin.trim()).filter(Boolean)
 
-// SMTP credentials come from the environment only. Without SMTP_HOST the mails are written to
-// static/email/test-emails and can be viewed at http://localhost:3001/mailbox (local development).
-const emailTransportOptions: Pick<EmailPluginOptions, "transport"> | Pick<EmailPluginDevModeOptions, "devMode" | "outputPath"> = process.env.SMTP_HOST
+// Mail transport from the environment only:
+// 1. RESEND_API_KEY set → Resend via SMTP (smtp.resend.com:465, user "resend"), sender domain must be verified in Resend
+// 2. SMTP_HOST set      → generic SMTP (e.g. Aruba smtps.aruba.it:587 with STARTTLS)
+// 3. neither            → mails are written to static/email/test-emails, viewable at http://localhost:3001/mailbox (local dev)
+const emailTransportOptions: Pick<EmailPluginOptions, "transport"> | Pick<EmailPluginDevModeOptions, "devMode" | "outputPath"> = process.env.RESEND_API_KEY
+    ? {
+          transport: {
+              type: "smtp",
+              host: "smtp.resend.com",
+              port: 465,
+              secure: true,
+              auth: {
+                  user: "resend",
+                  pass: process.env.RESEND_API_KEY,
+              },
+          },
+      }
+    : process.env.SMTP_HOST
     ? {
           transport: {
               type: "smtp",
@@ -209,65 +223,9 @@ export const config: VendureConfig = {
         // no bank transfer / SEPA for tandem.flights
         HtPlugin.init({ registerManualPaymentHandlers: false }),
         TandemPlugin,
-        ElasticsearchPlugin.init({
-            adapter: () =>
-                createElasticsearchAdapter({
-                    host: IS_LOCAL ? "http://localhost" : "http://elasticsearch",
-                    port: IS_LOCAL ? 9201 : 9200,
-                }),
-            indexPrefix: "vendure",
-            bufferUpdates: false, // wichtig, damit die Updates sofort in Elasticsearch landen
-            // relevance: a match in the product title ranks highest
-            searchConfig: {
-                multiMatchType: "best_fields",
-                boostFields: {
-                    productName: 5,
-                    productVariantName: 3,
-                    sku: 2,
-                    description: 1,
-                },
-            },
-            // Substring matching for German compound words, e.g. searching
-            // "Socken" should match the product title "Schafwollsocken".
-            // n-grams are generated at index time; the query stays a whole word
-            // (search_analyzer) so it is matched against the indexed substrings.
-            // NOTE: changing index settings/mappings recreates the indices —
-            // a full reindex is required afterwards.
-            indexSettings: {
-                index: {
-                    max_ngram_diff: 18,
-                },
-                analysis: {
-                    filter: {
-                        ngram_filter: {
-                            type: "ngram",
-                            min_gram: 3,
-                            max_gram: 20,
-                        },
-                    },
-                    analyzer: {
-                        ngram_analyzer: {
-                            type: "custom",
-                            tokenizer: "standard",
-                            filter: ["lowercase", "ngram_filter"],
-                        },
-                    },
-                },
-            },
-            indexMappingProperties: {
-                productName: {
-                    type: "text",
-                    analyzer: "ngram_analyzer",
-                    search_analyzer: "standard",
-                    fields: {
-                        keyword: {
-                            type: "keyword",
-                            ignore_above: 256,
-                        },
-                    },
-                },
-            },
-        }),
+        // tandem.flights: lean stack without Elasticsearch (7 products, small shared server).
+        // DefaultSearchPlugin indexes into Postgres; the tandem frontend uses the products query anyway.
+        DefaultSearchPlugin.init({ bufferUpdates: false, indexStockStatus: true }),
         DashboardPlugin.init({
             // Important: This must match the base path from vite.config.mts (without slashes)
             route: "dashboard",

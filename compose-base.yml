@@ -1,8 +1,13 @@
+# tandem.flights lean base stack (2 vCPU / 3.7 GB shared Coolify server): Postgres + nightly backup.
+# No Elasticsearch (DefaultSearchPlugin) and no Loki.
 services:
     database:
         restart: always
         image: postgres:16
-        container_name: database
+        container_name: tandem-vendure-db
+        # small shared server: keep postgres lean
+        command: ["postgres", "-c", "shared_buffers=64MB", "-c", "max_connections=40", "-c", "work_mem=4MB"]
+        mem_limit: 384m
         environment:
             POSTGRES_PASSWORD: ${DB_PASSWORD}
             POSTGRES_DB: ${DB_NAME}
@@ -20,34 +25,15 @@ services:
             retries: 5
             start_period: 30s
 
-    elasticsearch:
-        # Persisted data must be upgraded stepwise, e.g. 8.12 → 8.19 → 9.x (9.3.2 on an 8.12 volume crashes on boot)
-        image: docker.elastic.co/elasticsearch/elasticsearch:9.3.2
-        container_name: elasticsearch
-        environment:
-            - discovery.type=single-node
-            - ES_JAVA_OPTS=-Xms1g -Xmx1g
-            - xpack.security.enabled=false
-        volumes:
-            - esdata:/usr/share/elasticsearch/data
-        networks:
-            - coolify
-        labels:
-            - coolify.persistent=true
-        healthcheck:
-            test: ["CMD-SHELL", "curl -fsS 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s' || exit 1"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-            start_period: 60s
     backup:
-        container_name: backup
+        container_name: tandem-vendure-backup
+        mem_limit: 128m
         platform: linux/amd64
         restart: unless-stopped
         build:
             context: .
             dockerfile: cron.Dockerfile
-        image: vendure-backup
+        image: tandem-vendure-backup
         depends_on:
             database:
                 condition: service_healthy
@@ -72,31 +58,6 @@ services:
             retries: 3
             start_period: 30s
 
-    loki:
-        build:
-            context: ./observability
-            dockerfile: Dockerfile.loki
-        image: vendure-loki:3.4.2
-        restart: unless-stopped
-        command: -config.file=/etc/loki/loki-config.yaml
-        ports:
-            - "127.0.0.1:3100:3100"
-        volumes:
-            - loki_data:/loki
-        networks:
-            coolify:
-            log_drains:
-                aliases:
-                    - coolify-loki
-        labels:
-            - coolify.persistent=true
-        healthcheck:
-            test: ["CMD-SHELL", "wget -qO- http://localhost:3100/ready || exit 1"]
-            interval: 15s
-            timeout: 5s
-            retries: 5
-            start_period: 30s
-
     # maintenance:
     #   build:
     #     context: .
@@ -116,12 +77,7 @@ services:
 networks:
     coolify:
         external: true
-    log_drains:
-        name: log-drains_default
-        external: true
 
 volumes:
     db_data:
-    esdata:
-    loki_data:
     maintenance_data:

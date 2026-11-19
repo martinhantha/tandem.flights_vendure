@@ -5,17 +5,20 @@ services:
       context: .
       dockerfile: Dockerfile
       tags:
-        - vendure-server-base:latest
+        - tandem-vendure-server-base:latest
     entrypoint: ["true"]
     restart: "no"
   server:
-    image: vendure-server-base
+    image: tandem-vendure-server-base
     pull_policy: never
     depends_on:
       - server_base
     ports:
       - 4000:4000
     command: ["yarn", "start:server"]
+    mem_limit: 640m
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=448
     logging:
       driver: json-file
       options:
@@ -31,11 +34,14 @@ services:
       retries: 5
       start_period: 10s
   worker:
-    image: vendure-server-base
+    image: tandem-vendure-server-base
     pull_policy: never
     depends_on:
       - server_base
     command: ["yarn", "start:worker"]
+    mem_limit: 512m
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=384
     logging:
       driver: json-file
       options:

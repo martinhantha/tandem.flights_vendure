@@ -32,10 +32,10 @@ Public URL **https://ecommerce.tandem.flights** – shop-api `https://ecommerce.
 `compose.yml` / `compose-base.yml` are identical to the reference project arundavivaldi.it_vendure.
 
 1. **Base resource** (once per server/project): Coolify → New Resource → Docker Compose from the git repo, compose file
-   `compose-base.yml` (Postgres `database`, `elasticsearch`, nightly `backup`, `loki`). Requires the external networks
+   `compose-base.yml` (Postgres `tandem-vendure-db`, nightly `tandem-vendure-backup`; lean variant without Elasticsearch/Loki). Requires the external networks
    `coolify` and `log-drains_default` (created by Coolify / the logging-drain setup, see `compose.logging-drain.yml` and
    `observability/README.md`). Env: `DB_NAME`, `DB_USERNAME`, `DB_PASSWORD`, `AWS_*` (backup upload).
-   Note: the container names `database` / `elasticsearch` are fixed – one shop stack per Docker host/network, as in the reference projects.
+   Note: container names are prefixed with `tandem-` because the Coolify server (avelom, coolify.myflights.cloud) is shared with other projects. Set `DB_HOST=tandem-vendure-db`.
 2. **App resource**: New Resource → Docker Compose, same repo, branch `master` (prod) / `develop` (dev), compose file `compose.yml`
    (`server_base` builds the image, `server` on port 4000, `worker` with health check on 3020).
 3. Domain: on service `server` set `https://ecommerce.tandem.flights:4000` (Coolify/Traefik routes the domain to port 4000, Let's Encrypt).
@@ -250,3 +250,9 @@ Staff redemption: Dashboard → Gutscheine → search the code → "Vor Ort eing
 - Elasticsearch is the template standard; for 7 products the DefaultSearchPlugin would be enough.
 - Manually issued vouchers with PDF (old backend form "generatecoupon") – not implemented.
 - `src/migrations` contains the template migration; the config uses `synchronize: true` like the template – create a fresh migration before go-live.
+
+## Lean stack (avelom / coolify.myflights.cloud)
+
+Decided 2026-11-19: no Elasticsearch (Vendure `DefaultSearchPlugin`, Postgres-based) and no Loki, because the
+shared server has 2 vCPU / 3.7 GB RAM. Memory limits: server 640 MB, worker 512 MB, Postgres 384 MB, backup 128 MB.
+Mail: `RESEND_API_KEY` (Resend SMTP) takes precedence over `SMTP_*`.
