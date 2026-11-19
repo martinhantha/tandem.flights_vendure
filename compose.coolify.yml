@@ -1,0 +1,104 @@
+# tandem.flights – single Coolify stack (avelom / coolify.myflights.cloud) with images built LOCALLY
+# (the shared server has too little RAM to build Vendure):
+#
+#   yarn tandem:image        # build linux/amd64 images on Docker Desktop and load them on the server
+#   then redeploy in Coolify (or via the deploy webhook)
+#
+# Lean variant: no Elasticsearch, no Loki. Assets + voucher PDFs on the volume "assets" (no S3).
+services:
+    tandem-vendure-db:
+        image: postgres:16
+        restart: always
+        command: ["postgres", "-c", "shared_buffers=64MB", "-c", "max_connections=40", "-c", "work_mem=4MB"]
+        mem_limit: 384m
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ${DB_NAME}
+            POSTGRES_USER: ${DB_USERNAME}
+        volumes:
+            - db_data:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_NAME}"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 30s
+
+    server:
+        image: tandem-vendure-server-base:latest
+        pull_policy: never
+        restart: unless-stopped
+        command: ["yarn", "start:server"]
+        mem_limit: 640m
+        environment:
+            NODE_OPTIONS: --max-old-space-size=448
+        volumes:
+            - assets:/usr/src/app/static/assets
+        depends_on:
+            tandem-vendure-db:
+                condition: service_healthy
+        logging:
+            driver: json-file
+            options:
+                max-size: "20m"
+                max-file: "5"
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+            interval: 10s
+            timeout: 3s
+            retries: 6
+            start_period: 60s
+
+    worker:
+        image: tandem-vendure-server-base:latest
+        pull_policy: never
+        restart: unless-stopped
+        command: ["yarn", "start:worker"]
+        mem_limit: 512m
+        environment:
+            NODE_OPTIONS: --max-old-space-size=384
+        volumes:
+            - assets:/usr/src/app/static/assets
+        depends_on:
+            tandem-vendure-db:
+                condition: service_healthy
+        logging:
+            driver: json-file
+            options:
+                max-size: "20m"
+                max-file: "5"
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:3020/health"]
+            interval: 10s
+            timeout: 3s
+            retries: 6
+            start_period: 60s
+
+    backup:
+        image: tandem-vendure-backup:latest
+        pull_policy: never
+        restart: unless-stopped
+        mem_limit: 128m
+        depends_on:
+            tandem-vendure-db:
+                condition: service_healthy
+        volumes:
+            - "/root/backups/tandem-flights:/backups"
+            - assets:/assets:ro
+        command:
+            - sh
+            - "-c"
+            - |
+                printenv | grep -E '^(DB_|AWS_)' > /etc/environment
+                echo '0 3 * * * . /etc/environment; /usr/local/bin/backup-local.sh >> /var/log/cron.log 2>&1' | crontab -
+                crond -f -l 2
+        healthcheck:
+            test: ["CMD-SHELL", "pgrep crond > /dev/null || exit 1"]
+            interval: 1m
+            timeout: 5s
+            retries: 3
+            start_period: 30s
+
+volumes:
+    db_data:
+    assets:

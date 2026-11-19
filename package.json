@@ -20,7 +20,8 @@
         "tandem:seed": "ts-node scripts/tandem-import/seed.ts",
         "tandem:import-products": "ts-node scripts/tandem-import/import-products.ts",
         "tandem:import-vouchers": "ts-node scripts/tandem-import/import-vouchers.ts",
-        "tandem:typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p scripts/tandem-import/tsconfig.json"
+        "tandem:typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p scripts/tandem-import/tsconfig.json",
+        "tandem:image": "bash scripts/tandem-image.sh"
     },
     "dependencies": {
         "@aws-sdk/client-s3": "^3.1092.0",

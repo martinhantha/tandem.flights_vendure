@@ -161,7 +161,8 @@ export const config: VendureConfig = {
             route: "assets",
             assetUploadDir: path.join(__dirname, "../static/assets"),
             assetUrlPrefix: (IS_LOCAL ? process.env.APP_URL_DEV + ":3001" : IS_DEV ? process.env.APP_URL_DEV : process.env.APP_URL_PROD) + "/assets/",
-            storageStrategyFactory: IS_LOCAL
+            // no AWS_BUCKET → local disk (static/assets, a shared Docker volume in compose.coolify.yml)
+            storageStrategyFactory: IS_LOCAL || !process.env.AWS_BUCKET
                 ? undefined
                 : configureS3AssetStorage({
                       bucket: process.env.AWS_BUCKET || "",
