@@ -330,3 +330,4 @@ tandema_db*.sql
 # all env files except the example (e.g. .env.coolify with production secrets)
 .env.*
 !.env.example
+build-scripts

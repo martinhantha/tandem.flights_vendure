@@ -1,0 +1,19 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": false,
+        "outDir": "../../build-scripts",
+        "rootDir": "../../",
+        "sourceMap": false,
+        "declaration": false
+    },
+    "include": [
+        "./**/*.ts",
+        "../../src/**/*.ts"
+    ],
+    "exclude": [
+        "../../node_modules",
+        "../../src/plugins/**/dashboard/**",
+        "./render-voucher-sample.ts"
+    ]
+}

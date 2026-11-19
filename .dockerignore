@@ -19,3 +19,4 @@ static/email/test-emails
 scripts/tandem-import/out
 *.sql
 *.sql.gz
+build-scripts
