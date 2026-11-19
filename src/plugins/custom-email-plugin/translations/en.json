@@ -1,0 +1,67 @@
+{
+    "handlebarsDateFormat": "dd.mm.yyyy",
+    "dateTimeFormat": "DD.MM.YYYY HH:mm",
+    "timeSuffix": "",
+    "footerText": "_SHOP_NAME_ | _SHOP_ADDRESS_",
+    "footerLinks": {
+        "withdrawal": "Withdrawal form",
+        "imprint": "Imprint",
+        "privacy": "Privacy policy"
+    },
+    "emailVerification": {
+        "subject": "_SHOP_NAME_: Complete registration",
+        "title": "Complete registration",
+        "text": "Thank you for creating an account. Click the button below to verify your email address and complete the registration process:",
+        "buttonText": "Confirm email",
+        "info": "If you did not make this request, you can ignore this email - nothing has been changed to your account."
+    },
+    "passwordReset": {
+        "subject": "_SHOP_NAME_: Reset password",
+        "title": "Reset password",
+        "text": "A new password has been requested for your account.",
+        "buttonText": "Reset password",
+        "info": "If you have not made this request, you can ignore this email - nothing has been changed in your account."
+    },
+    "emailAddressChange": {
+        "subject": "_SHOP_NAME_: Change email address",
+        "title": "Change email address",
+        "text": "We have received a request to change your registered email address. Click the button below to confirm the address and complete the process:",
+        "buttonText": "Confirm email",
+        "info": "If you did not make this request, you can ignore this email - nothing has changed in your account."
+    },
+    "orderConfirmation": {
+        "subject": "_SHOP_NAME_: Order confirmation",
+        "title": "Order confirmation",
+        "codeTitle": "Order",
+        "dateTitle": "Order date",
+        "totalTitle": "Total",
+        "contactTitle": "Contact information",
+        "billingAddressTitle": "Billing address",
+        "shippingAddressTitle": "Shipping address",
+        "shippingMethodTitle": "Shipping method",
+        "paymentMethodTitle": "Payment method",
+        "orderLinesTitle": "Order details",
+        "deliveryTimeTitle": "Estimated delivery time:",
+        "discountTitle": "Voucher code:",
+        "subTotalTitle": "Subtotal",
+        "shippingTitle": "Shipping:",
+        "taxTitle": "incl. VAT",
+        "voucherInfo": "The voucher will be sent as soon as the payment is received.",
+        "seeMore": "Would you like to browse more?",
+        "toTheShop": "To the shop",
+        "voucherZipUrlButtonText": "Download voucher"
+    },
+    "sendVoucher": {
+        "subject": "_SHOP_NAME_: Order vouchers",
+        "voucherZipUrlButtonText": "Download voucher",
+        "title": "Your voucher",
+        "text": "your voucher is enclosed."
+    },
+    "sendShipping": {
+        "subject": "_SHOP_NAME_: Shipping confirmation",
+        "title": "Your order has been shipped",
+        "text": "We are pleased to inform you that your order has been shipped.<br>You can find the details below.",
+        "fulfillmentsTitle": "Shipping information",
+        "text2": "We wish you much joy with your new products and hope to welcome you back soon."
+    }
+}

@@ -1,0 +1,296 @@
+{{> header title=title }}
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ title }}
+        </mj-text>
+         {{#if infoText }}
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            {{{ infoText }}}
+        </mj-text>
+        {{/if}}
+        {{#if voucherZipUrl }}
+        <mj-button font-family="{{ fontFamily }}"
+                    background-color=" {{ colorCta }}"
+                    color="{{ white }}"
+                    align="left"
+                    href="{{ voucherZipUrl }}"
+                    border-radius="0"
+                    inner-padding="15px 25px 15px 25px"
+                    padding="20px 0 0 0"
+                    font-size="15px"
+                    line-height="1.17"
+                    letter-spacing="0.05em"
+                    font-weight="700"
+                    >
+            {{ voucherZipUrlButtonText }}
+        </mj-button>
+        {{/if}}
+    </mj-column>
+</mj-section>
+
+<mj-section padding="20px 10px 20px 10px" border-right="{{ border }}" border-left="{{ border }}" background-color="{{ colorBackgroundDark }}">
+    <mj-column padding="0 10px 0 10px">
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="700" align="center">{{ codeTitle }}</mj-text>
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300" align="center">{{ order.code }}</mj-text>
+    </mj-column>
+    <mj-column padding="0 10px 0 10px">
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="700" align="center">{{ dateTitle }}</mj-text>
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300" align="center">{{ formatDate order.orderPlacedAt handlebarsDateFormat }}</mj-text>
+    </mj-column>
+    <mj-column padding="0 10px 0 10px">
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="700" align="center">{{ totalTitle }}</mj-text>
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300" align="center">{{ formatMoney order.totalWithTax order.currencyCode languageCode }}</mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+         <mj-spacer height="20px" />
+     </mj-column>
+</mj-section>
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ contactTitle }}
+        </mj-text>
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            {{#with order.customer }}
+                <div><b>{{ firstName }} {{ lastName }}</b></div>
+                <div>{{#if emailAddress}}<a href="mailto:{{ emailAddress }}" style="color:{{ ../colorFont }};text-decoration: none;">{{ emailAddress }}</a>{{/if}}</div>
+            {{/with}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+
+{{#if order.billingAddress.fullName }}
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ billingAddressTitle }}
+        </mj-text>
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            {{#with order.billingAddress }}
+                <div><b>{{ fullName }} {{#if company}}- {{ company }}{{/if}}</b></div>
+                <div>{{#if streetLine1}}{{ streetLine1 }}{{/if}} {{#if streetLine2}}{{ streetLine2 }}{{/if}}</div>
+                <div>{{#if postalCode}}{{ postalCode }}{{/if}}{{#if city}} {{ city }}{{/if}}{{#if province}} ({{ province }}){{/if}}{{#if country}}, {{ country }}{{/if}}</div>
+                <div>{{#if phoneNumber}}{{ phoneNumber }}{{/if}}</div>
+            {{/with}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+{{/if}}
+
+{{#if order.shippingAddress.fullName }}
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ shippingAddressTitle }}
+        </mj-text>
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            {{#with order.shippingAddress }}
+                <div><b>{{ fullName }} {{#if company}}- {{ company }}{{/if}}</b></div>
+                <div>{{#if streetLine1}}{{ streetLine1 }}{{/if}} {{#if streetLine2}}{{ streetLine2 }}{{/if}}</div>
+                <div>{{#if postalCode}}{{ postalCode }}{{/if}}{{#if city}} {{ city }}{{/if}}{{#if province}} ({{ province }}){{/if}}{{#if country}}, {{ country }}{{/if}}</div>
+                <div>{{#if phoneNumber}}{{ phoneNumber }}{{/if}}</div>
+            {{/with}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+{{/if}}
+
+{{#if shippingLines }}
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ shippingMethodTitle }}
+        </mj-text>
+        {{#each shippingLines }}
+            <mj-text padding="0" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="17px" line-height="1.52" font-weight="700">
+                {{ shippingMethod.name }}
+            </mj-text>
+            {{#if shippingMethod.description }}
+                <mj-text padding="0" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="15px" line-height="1.2" font-weight="300">
+                    {{{ shippingMethod.description }}}
+                </mj-text>
+            {{/if}}
+        {{/each}}
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+{{/if}}
+
+{{#if payments }}
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ paymentMethodTitle }}
+        </mj-text>
+        {{#each payments }}
+            <mj-text padding="0" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="17px" line-height="1.52" font-weight="700">
+                {{#if paymentMethod.name }}
+                    {{ paymentMethod.name }}
+                {{else}}
+                    {{ method }}
+                {{/if}}
+            </mj-text>
+            {{#if paymentMethod.description }}
+                <mj-text padding="0" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="15px" line-height="1.2" font-weight="300">
+                    {{{ paymentMethod.description }}}
+                    {{#if paymentMethod.customFields.emailText }}
+                        {{{ paymentMethod.customFields.emailText }}}
+                    {{/if}}
+                    {{#if ../voucherInfo }}
+                        <br/><b>{{ ../voucherInfo }}</b>
+                    {{/if}}
+                </mj-text>
+            {{/if}}
+        {{/each}}
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+{{/if}}
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ orderLinesTitle }}
+        </mj-text>
+        <mj-table padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52">
+            {{#each orderLines }}
+                <tr style="vertical-align:top;{{#unless @first}}border-top:1px solid {{ ../borderColor }};{{/unless}}">
+                    <td style="padding:10px 10px 10px 0;">
+                        <div>
+                            <b>
+                                {{ productVariant.product.name }}
+                                {{ productVariant.name }}
+                            </b>
+                        </div>
+                        <div style="font-size: 15px;line-height: 1.2;font-weight:300;">{{ quantity }} x {{ formatMoney unitPriceWithTax ../order.currencyCode ../languageCode }}</div>
+                        {{#if productVariant.product.customFields.deliveryTime }}
+                            <div style="font-size: 15px;line-height: 1.2;font-weight:300;padding-top:5px;">{{ ../deliveryTimeTitle }} {{ productVariant.product.customFields.deliveryTime }}</div>
+                        {{/if}}
+                    </td>
+                    <td style="padding:10px 0 10px 0;text-align:right;white-space:nowrap !important;"><b>{{ formatMoney linePriceWithTax ../order.currencyCode ../languageCode }}</b></td>
+                </tr>
+            {{/each}}
+            {{#each order.surcharges }}
+                <tr style="vertical-align:top;border-top:1px solid {{ ../borderColor }};">
+                    <td style="padding:10px 10px 10px 0;">
+                        {{#with (splitDescription description) }}
+                            <div><b>{{ title }}</b></div>
+                            <div style="font-size: 15px;line-height: 1.2;font-weight:300;">{{ text }}</div>
+                        {{/with}}
+                    </td>
+                    <td style="padding:10px 0 10px 0;text-align:right;white-space:nowrap !important;"><b>{{ formatMoney priceWithTax ../order.currencyCode ../languageCode }}</b></td>
+                </tr>
+            {{/each}}
+        </mj-table>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="20px 25px 10px 25px" border-right="{{ border }}" border-left="{{ border }}" background-color="#F9F8F6">
+    <mj-column>
+        <mj-table padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52">
+            {{#each discounts }}
+                <tr style="font-weight:300;vertical-align:top;">
+                    <td style="padding:0 10px 0 0;">{{#if couponCode}}{{ ../discountTitle }} {{/if}}{{ description }}</td>
+                    <td style="text-align:right;white-space:nowrap !important;">{{ formatMoney amountWithTax ../order.currencyCode ../languageCode }}</td>
+                </tr>
+            {{/each}}
+                <tr style="font-weight:300;vertical-align:top;">
+                    <td style="padding:0 10px 0 0;">{{ subTotalTitle }}</td>
+                    <td style="text-align:right;white-space:nowrap !important;">{{ formatMoney order.subTotalWithTax order.currencyCode languageCode }}</td>
+                </tr>
+            {{#each shippingLines }}
+                <tr style="font-weight:300;vertical-align:top;">
+                    <td style="padding:0 10px 0 0;">{{ ../shippingTitle }} {{ shippingMethod.name }}</td>
+                    <td style="text-align:right;white-space:nowrap !important;">{{ formatMoney priceWithTax ../order.currencyCode ../languageCode }}</td>
+                </tr>
+            {{/each}}
+        </mj-table>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 10px 15px" border-right="{{ border }}" border-left="{{ border }}" background-color="#F9F8F6">
+    <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-bottom="{{ border }}" border-left="{{ border }}" background-color="#F9F8F6">
+    <mj-column>
+        <mj-table padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52">
+            <tr style="font-weight:700;vertical-align:top;">
+                <td style="padding:0 10px 0 0;">{{ totalTitle }}</td>
+                <td style="text-align:right;white-space:nowrap !important;">{{ formatMoney order.totalWithTax order.currencyCode languageCode }}</td>
+            </tr>
+            {{#each taxLines }}
+                <tr style="font-size:15px;line-height:1.2;font-weight:300;vertical-align:top;">
+                    <td style="padding:5px 10px 0 0;">{{ ../taxTitle }} {{ rateLabel }}</td>
+                    <td style="padding:5px 0 0 0;text-align:right;white-space:nowrap !important;">{{ formatMoney taxTotal ../order.currencyCode ../languageCode }}</td>
+                </tr>
+            {{/each}}
+        </mj-table>
+    </mj-column>
+</mj-section>
+
+{{#if preFooterText }}
+<mj-section padding="20px 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}" border-bottom="{{ border }}">
+    <mj-column>
+         <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            <div>{{{ preFooterText }}}</div><br/>
+            {{ seeMore }}
+        </mj-text>
+        {{#if shopLink }}
+        <mj-button font-family="{{ fontFamily }}"
+                    background-color=" {{ colorCta }}"
+                    color="{{ white }}"
+                    align="left"
+                    href="{{{ shopLink }}}"
+                    border-radius="0"
+                    inner-padding="15px 25px 15px 25px"
+                    padding="20px 0 0 0"
+                    font-size="15px"
+                    line-height="1.17"
+                    letter-spacing="0.05em"
+                    font-weight="700"
+                    text-transform="uppercase">
+            {{ toTheShop }}
+        </mj-button>
+        {{/if}}
+    </mj-column>
+</mj-section>
+{{/if}}
+
+{{> footer }}

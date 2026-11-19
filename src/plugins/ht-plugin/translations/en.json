@@ -1,0 +1,138 @@
+{
+    "message": {
+        "error": {
+            "orderLineNotFound": "Unfortunately, we were unable to find the article",
+            "couponLocalOnly": "The voucher can only be redeemed on-site",
+            "couponValueExhausted": "Your credit has already been used up",
+            "couponExpired": "The voucher has expired",
+            "couponNotYetValid": "The voucher is not valid yet",
+            "couponNothingToDiscount": "The voucher cannot be applied to this cart",
+            "voucherNotice": {
+                "deleted": "The voucher {code} is no longer valid and has been removed from your cart. Please check the new total.",
+                "expired": "The voucher {code} has expired and has been removed from your cart. Please check the new total.",
+                "notYetValid": "The voucher {code} is not valid yet and has been removed from your cart. Please check the new total.",
+                "balance": "The balance of the voucher {code} has changed and the discount was adjusted. Please check the new total."
+            },
+            "emailAlreadyUsed": "The email address is already registered. Please log in or use a different email address."
+        }
+    },
+    "additionalChild": "{count} {count, plural, one {additional child} other {additional children}}",
+    "common": {
+        "loading": "Loading...",
+        "delete": "Delete",
+        "update": "Update",
+        "id": "ID",
+        "created": "Created",
+        "updated": "Updated",
+        "name": "Name",
+        "content": "Content",
+        "isPublished": "Is Published",
+        "plainText": "Plain text",
+        "richText": "Rich text",
+        "searchCountriesPlaceholder": "Search countries..."
+    },
+    "nav": {
+        "vouchers": "Vouchers",
+        "contentManagement": "Content Management"
+    },
+    "shipping": {
+        "country": "Country",
+        "rate": "Shipping cost",
+        "freeShipping": "Free shipping from",
+        "taxRate": "Tax rate",
+        "default": "Default",
+        "addCountry": "Add country",
+        "countryPlaceholder": "Select country",
+        "noCountriesFound": "No countries found"
+    },
+    "pdfDesigner": {
+        "title": "Voucher Designer",
+        "saveTemplate": "Save Template",
+        "templateSaved": "Template saved",
+        "saveFailed": "Failed to save template"
+    },
+    "voucher": {
+        "title": "Vouchers",
+        "newVoucher": "New Voucher",
+        "editVoucher": "Edit Voucher",
+        "code": "Code",
+        "amount": "Amount (cents)",
+        "initialAmount": "Initial Amount (cents)",
+        "validFrom": "Valid From",
+        "validTo": "Valid To (incl.)",
+        "customer": "Customer",
+        "info": "Info",
+        "create": "Create",
+        "save": "Save",
+        "searchCustomerPlaceholder": "Search by email (min 2 characters)...",
+        "enterVoucherCode": "Enter voucher code",
+        "enterAmount": "Enter amount in cents",
+        "enterInitialAmount": "Enter initial amount in cents",
+        "enterInfo": "Enter info",
+        "noCustomersFound": "No customers found",
+        "searching": "Searching...",
+        "deleteConfirm": "Delete {count} voucher(s)?",
+        "loadFailed": "Failed to load voucher",
+        "createSuccess": "Successfully created voucher",
+        "updateSuccess": "Successfully updated voucher",
+        "saveFailed": "Failed to save voucher",
+        "redeemOnSite": "Redeemed on-site",
+        "redeemOnSiteConfirm": "Mark this voucher as redeemed on-site? Its balance will be set to 0."
+    },
+    "textblock": {
+        "title": "Text Blocks",
+        "newTextblock": "New Text Block",
+        "editTextblock": "Edit Text Block",
+        "deleteConfirm": "Delete {count} text block(s)?",
+        "updateSuccess": "Successfully updated text block",
+        "updateFailed": "Failed to update text block"
+    },
+    "resendOrderEmail": {
+        "menuLabel": "Resend order email",
+        "confirmTitle": "Resend order email?",
+        "confirmDescription": "The order confirmation will be sent to the customer again.",
+        "confirm": "Send",
+        "cancel": "Cancel",
+        "orderIdMissing": "Order ID missing",
+        "success": "Order email has been resent.",
+        "failed": "Failed to resend order email"
+    },
+    "sepa": {
+        "menuLabel": "Show SEPA bank details",
+        "title": "SEPA Bank Details",
+        "description": "This data is sensitive. Please close the window after use.",
+        "paymentId": "Payment ID",
+        "loading": "Loading…",
+        "noDataFound": "No SEPA data found",
+        "loadFailed": "Failed to load SEPA data",
+        "close": "Close",
+        "accountHolder": "Account holder",
+        "iban": "IBAN",
+        "bicSwift": "BIC / SWIFT",
+        "bank": "Bank",
+        "mandateReference": "Mandate reference",
+        "copied": "copied",
+        "copyFailed": "could not be copied",
+        "copy": "Copy"
+    },
+    "assetCache": {
+        "title": "Cache & Preview",
+        "introTitle": "Cache & Preview",
+        "intro": "Clear the image transform cache (cache/), the shop collection menu Redis cache, or rebuild asset preview files (preview/). Requires catalog admin permissions.",
+        "clearTransformCache": "Clear transform cache",
+        "clearTransformCacheHint": "Deletes cached transformed images only. Safe to run in production; images are recreated on next request.",
+        "clearCollectionMenuCache": "Clear collection menu cache",
+        "clearCollectionMenuCacheHint": "Deletes Redis keys for cached collection menu and facet/product listings. Safe; data is rebuilt on the next request (no Redis clears nothing).",
+        "successMenuCleared": "Collection menu cache cleared",
+        "regeneratePreviews": "Rebuild preview files",
+        "regeneratePreviewsHint": "Regenerates files under preview/ from source. Use if preview URLs return 404 after storage cleanup. Can take several minutes.",
+        "regenerateConfirm": "Rebuild all asset preview files from source? This can take a while.",
+        "normalizeSources": "Fix image orientation",
+        "normalizeSourcesHint": "Applies EXIF rotation to existing source files, updates width/height, and rebuilds previews. Run once after the update if shop images appear rotated.",
+        "normalizeConfirm": "Fix EXIF orientation for all image assets? This can take several minutes.",
+        "successNormalized": "Image orientation fixed",
+        "successCleared": "Transform cache cleared",
+        "successRegenerated": "Preview regeneration finished",
+        "failed": "Operation failed"
+    }
+}

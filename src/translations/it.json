@@ -1,0 +1,39 @@
+{
+    "nav": {
+        "general": "Generale"
+    },
+    "rule": {
+        "breadcrumb": "Regole",
+        "create": "Nuova regola"
+    },
+    "settings": {
+        "breadcrumb": "Impostazioni"
+    },
+    "voucherPdfDesigner": {
+        "breadcrumb": "Designer PDF voucher"
+    },
+    "textblock": {
+        "breadcrumb": "Blocchi di testo",
+        "create": "Nuovo blocco di testo"
+    },
+    "reservation": {
+        "breadcrumb": "Prenotazioni",
+        "create": "Nuova prenotazione"
+    },
+    "slot": {
+        "breadcrumb": "Slots",
+        "edit": "Modifica slot"
+    },
+    "voucher": {
+        "breadcrumb": "Voucher"
+    },
+    "day": {
+        "0": "Domenica",
+        "1": "Lunedì",
+        "2": "Martedì",
+        "3": "Mercoledì",
+        "4": "Giovedì",
+        "5": "Venerdì",
+        "6": "Sabato"
+    }
+}

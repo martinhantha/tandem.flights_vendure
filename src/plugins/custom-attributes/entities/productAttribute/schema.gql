@@ -1,0 +1,96 @@
+############################################
+# EXTENDS                                  #
+############################################
+
+extend type Query {
+    productAttributes(options: ProductAttributeListOptions): ProductAttributeList!
+    productAttribute(id: ID, productId: ID, code: String): ProductAttribute
+}
+
+extend type Mutation {
+    createProductAttribute(input: CreateProductAttributeInput!): ProductAttribute!
+    updateProductAttribute(input: UpdateProductAttributeInput!): ProductAttribute!
+    deleteProductAttribute(input: DeleteProductAttributeInput!): DeletionResponse!
+}
+
+############################################
+# TYPES                                    #
+############################################
+
+type ProductAttribute implements Node {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    productId: ID
+    attributePropertyId: ID
+    attributeProperty: AttributeProperty
+
+    useDefault: Boolean!
+
+    languageCode: LanguageCode!
+    value: String!
+    translations: [ProductAttributeTranslation!]!
+}
+
+type ProductAttributeTranslation {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    languageCode: LanguageCode!
+
+    value: String!
+}
+
+type ProductAttributeList implements PaginatedList {
+    items: [ProductAttribute!]!
+    totalItems: Int!
+}
+
+############################################
+# QUERY TYPES                              #
+############################################
+
+input ProductAttributeListOptions
+
+type ProductAttributeListQuery {
+    productAttributes: ProductAttributeList
+}
+
+type ProductAttributeQuery {
+    productAttribute: ProductAttribute
+}
+
+############################################
+# CUD - CREATE, UPDATE, DELETE             #
+############################################
+
+input ProductAttributeTranslationInput {
+    id: ID
+    languageCode: LanguageCode!
+    value: String
+}
+
+input CreateProductAttributeInput {
+    productId: ID!
+    attributePropertyId: ID
+    useDefault: Boolean!
+    translations: [ProductAttributeTranslationInput!]!
+}
+
+input CreateProductAttributeMutationVariables {
+    input: CreateProductAttributeInput
+}
+
+input UpdateProductAttributeInput {
+    id: ID
+    productId: ID!
+    attributePropertyId: ID
+    useDefault: Boolean!
+    translations: [ProductAttributeTranslationInput!]!
+}
+
+input DeleteProductAttributeInput {
+    id: ID!
+}

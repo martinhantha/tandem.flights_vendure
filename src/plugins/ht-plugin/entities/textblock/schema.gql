@@ -1,0 +1,85 @@
+type Textblock implements Node {
+	id: ID!
+	createdAt: DateTime!
+	updatedAt: DateTime!
+    languageCode: LanguageCode!
+    enabled: Boolean!
+    name: String!
+	description: String!
+    translations: [TextblockTranslation!]!
+}
+
+type TextblockTranslation {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    languageCode: LanguageCode!
+    description: String!
+}
+
+type TextblockList implements PaginatedList {
+	items: [Textblock!]!
+	totalItems: Int!
+}
+
+type GetTextblockDetail {
+	textblock(id: ID!): Textblock!
+}
+
+type UpdateTextblockDocument {
+	textblock(input: UpdateTextblockInput!): Textblock!
+}
+
+type CreateTextblockDocument {
+	textblock(input: CreateTextblockInput!): Textblock!
+}
+
+extend type Query {
+	textblocks(options: TextblockListOptions): TextblockList!
+	textblock(id: ID): Textblock
+}
+
+extend type Mutation {
+	createTextblock(input: CreateTextblockInput!): Textblock!
+	updateTextblock(input: UpdateTextblockInput!): Textblock!
+    updateTextblocks(input: [UpdateTextblockInput!]!): [Textblock!]!
+	deleteTextblock(id: ID!): DeletionResponse!
+    deleteTextblocks(ids: [ID!]!): [DeletionResponse!]!
+}
+
+input TextblockListOptions
+
+type TextblockDetailQuery {
+	textblock: Textblock
+}
+
+type TextblockListQuery {
+	textblocks: TextblockList
+}
+
+type GetTextblockListQuery {
+	textblocks: TextblockList!
+}
+
+type TextblockQuery {
+	textblock: Textblock
+}
+
+input TextblockTranslationInput {
+    id: ID
+    languageCode: LanguageCode!
+    description: String
+}
+
+input CreateTextblockInput {
+    enabled: Boolean
+    name: String
+    translations: [TextblockTranslationInput!]!
+}
+
+input UpdateTextblockInput {
+	id: ID!
+    enabled: Boolean
+    name: String
+    translations: [TextblockTranslationInput!]
+}

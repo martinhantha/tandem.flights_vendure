@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wir sind gleich wieder da!</title>
+    <script>
+        // Detect browser language
+        function getLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('de')) return 'de';
+            if (browserLang.startsWith('it')) return 'it';
+            return 'en';
+        }
+
+        // Translations
+        const translations = {
+            de: {
+                title: 'Wir sind gleich wieder da!',
+                heading: 'Wir arbeiten gerade an der Seite',
+                message: 'Unsere Seite ist bald wieder erreichbar – bitte versuche es später noch einmal.'
+            },
+            en: {
+                title: 'We\'ll be right back!',
+                heading: 'We\'re working on the site',
+                message: 'Our site will be available again soon – please try again later.'
+            },
+            it: {
+                title: 'Torneremo presto!',
+                heading: 'Stiamo lavorando al sito',
+                message: 'Il nostro sito sarà di nuovo disponibile a breve – riprova più tardi.'
+            }
+        };
+
+        // Apply translations on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const lang = getLanguage();
+            const t = translations[lang];
+            
+            document.documentElement.lang = lang;
+            document.title = t.title;
+            document.getElementById('heading').textContent = t.heading;
+            document.getElementById('message').textContent = t.message;
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .box {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+        
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        p {
+            color: #4a5568;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            margin: 20px auto 0;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .box {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <h1 id="heading">Wir arbeiten gerade an der Seite</h1>
+            <p id="message">Unsere Seite ist bald wieder erreichbar – bitte versuche es später noch einmal.</p>
+            <div class="spinner"></div>
+        </div>
+    </div>
+</body>
+</html>

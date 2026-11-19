@@ -1,0 +1,138 @@
+{
+    "message": {
+        "error": {
+            "orderLineNotFound": "Purtroppo non siamo riusciti a trovare l'articolo",
+            "couponLocalOnly": "Il buono può essere riscattato solo in loco",
+            "couponValueExhausted": "Il tuo credito è esaurito",
+            "couponExpired": "Il buono è scaduto",
+            "couponNotYetValid": "Il buono non è ancora valido",
+            "couponNothingToDiscount": "Il buono non può essere applicato a questo carrello",
+            "voucherNotice": {
+                "deleted": "Il buono {code} non è più valido ed è stato rimosso dal carrello. Controlla il nuovo importo.",
+                "expired": "Il buono {code} è scaduto ed è stato rimosso dal carrello. Controlla il nuovo importo.",
+                "notYetValid": "Il buono {code} non è ancora valido ed è stato rimosso dal carrello. Controlla il nuovo importo.",
+                "balance": "Il credito del buono {code} è cambiato e lo sconto è stato adeguato. Controlla il nuovo importo."
+            },
+            "emailAlreadyUsed": "L'indirizzo email è già registrato. Effettua il login o utilizza un altro indirizzo email."
+        }
+    },
+    "additionalChild": "{count} {count, plural, one {bambino aggiuntivo} other {bambini aggiuntivi}}",
+    "common": {
+        "loading": "Caricamento...",
+        "delete": "Elimina",
+        "update": "Aggiorna",
+        "id": "ID",
+        "created": "Creato",
+        "updated": "Aggiornato",
+        "name": "Nome",
+        "content": "Contenuto",
+        "isPublished": "Pubblicato",
+        "plainText": "Testo semplice",
+        "richText": "Testo ricco",
+        "searchCountriesPlaceholder": "Cerca paesi..."
+    },
+    "nav": {
+        "vouchers": "Buoni",
+        "contentManagement": "Gestione Contenuti"
+    },
+    "shipping": {
+        "country": "Paese",
+        "rate": "Costo di spedizione",
+        "freeShipping": "Spedizione gratuita da",
+        "taxRate": "Aliquota fiscale",
+        "default": "Predefinito",
+        "addCountry": "Aggiungi paese",
+        "countryPlaceholder": "Seleziona paese",
+        "noCountriesFound": "Nessun paese trovato"
+    },
+    "pdfDesigner": {
+        "title": "Designer Buoni",
+        "saveTemplate": "Salva Template",
+        "templateSaved": "Template salvato",
+        "saveFailed": "Impossibile salvare il template"
+    },
+    "voucher": {
+        "title": "Buoni",
+        "newVoucher": "Nuovo Buono",
+        "editVoucher": "Modifica Buono",
+        "code": "Codice",
+        "amount": "Importo (centesimi)",
+        "initialAmount": "Importo iniziale (centesimi)",
+        "validFrom": "Valido dal",
+        "validTo": "Valido fino al (incluso)",
+        "customer": "Cliente",
+        "info": "Info",
+        "create": "Crea",
+        "save": "Salva",
+        "searchCustomerPlaceholder": "Cerca per email (min. 2 caratteri)...",
+        "enterVoucherCode": "Inserisci codice buono",
+        "enterAmount": "Inserisci importo in centesimi",
+        "enterInitialAmount": "Inserisci importo iniziale in centesimi",
+        "enterInfo": "Inserisci info",
+        "noCustomersFound": "Nessun cliente trovato",
+        "searching": "Ricerca...",
+        "deleteConfirm": "Eliminare {count} buono/i?",
+        "loadFailed": "Impossibile caricare il buono",
+        "createSuccess": "Buono creato con successo",
+        "updateSuccess": "Buono aggiornato con successo",
+        "saveFailed": "Impossibile salvare il buono",
+        "redeemOnSite": "Riscattato in loco",
+        "redeemOnSiteConfirm": "Segnare il buono come riscattato in loco? Il saldo verrà impostato a 0."
+    },
+    "textblock": {
+        "title": "Blocchi di Testo",
+        "newTextblock": "Nuovo Blocco di Testo",
+        "editTextblock": "Modifica Blocco di Testo",
+        "deleteConfirm": "Eliminare {count} blocco/i di testo?",
+        "updateSuccess": "Blocco di testo aggiornato con successo",
+        "updateFailed": "Impossibile aggiornare il blocco di testo"
+    },
+    "resendOrderEmail": {
+        "menuLabel": "Reinvia email d'ordine",
+        "confirmTitle": "Reinviare l'email d'ordine?",
+        "confirmDescription": "La conferma d'ordine verrà inviata nuovamente al cliente.",
+        "confirm": "Invia",
+        "cancel": "Annulla",
+        "orderIdMissing": "ID ordine mancante",
+        "success": "Email d'ordine reinviata.",
+        "failed": "Impossibile reinviare l'email d'ordine"
+    },
+    "sepa": {
+        "menuLabel": "Mostra coordinate bancarie SEPA",
+        "title": "Coordinate bancarie SEPA",
+        "description": "Questi dati sono sensibili. Si prega di chiudere la finestra dopo l'uso.",
+        "paymentId": "ID pagamento",
+        "loading": "Caricamento…",
+        "noDataFound": "Nessun dato SEPA trovato",
+        "loadFailed": "Impossibile caricare i dati SEPA",
+        "close": "Chiudi",
+        "accountHolder": "Intestatario",
+        "iban": "IBAN",
+        "bicSwift": "BIC / SWIFT",
+        "bank": "Banca",
+        "mandateReference": "Riferimento mandato",
+        "copied": "copiato",
+        "copyFailed": "non è stato possibile copiare",
+        "copy": "Copia"
+    },
+    "assetCache": {
+        "title": "Cache e anteprima",
+        "introTitle": "Cache e anteprima",
+        "intro": "Elimina la cache delle immagini (cache/), la cache del menu delle collezioni Redis o le file di anteprima degli asset (preview/). Richiede permessi di amministratore del catalogo.",
+        "clearTransformCache": "Elimina cache delle immagini",
+        "clearTransformCacheHint": "Elimina solo le immagini trasformate memorizzate. Sicuro da eseguire in produzione; le immagini vengono ricreate alla prossima richiesta.",
+        "clearCollectionMenuCache": "Elimina cache del menu delle collezioni",
+        "clearCollectionMenuCacheHint": "Elimina le chiavi Redis per le collezioni memorizzate e le liste di prodotti/facet. Sicuro; i dati vengono ricreati alla prossima richiesta (nessun Redis elimina nulla).",
+        "successMenuCleared": "Cache del menu delle collezioni eliminata",
+        "regeneratePreviews": "Ricrea file di anteprima",
+        "regeneratePreviewsHint": "Ricrea file sotto preview/ dalla sorgente. Usa se le URL di anteprima restituiscono 404 dopo la pulizia dello spazio di memorizzazione. Può richiedere alcuni minuti.",
+        "regenerateConfirm": "Ricrea tutti i file di anteprima degli asset dalla sorgente? Può richiedere alcuni minuti.",
+        "normalizeSources": "Correggi orientamento delle immagini",
+        "normalizeSourcesHint": "Applica la rotazione EXIF agli esistenti file di origine, aggiorna larghezza/altezza e ricrea le anteprime. Esegui una volta dopo l'aggiornamento se le immagini nel negozio appaiono ruotate.",
+        "normalizeConfirm": "Correggi l'orientamento EXIF per tutte le immagini degli asset? Può richiedere alcuni minuti.",
+        "successNormalized": "Orientamento delle immagini corretto",
+        "successCleared": "Cache delle immagini eliminata",
+        "successRegenerated": "Ricreazione delle anteprime completata",
+        "failed": "Operazione fallita"
+    }
+}

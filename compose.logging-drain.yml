@@ -1,0 +1,17 @@
+# Use when Coolify server log drain is enabled (Fluent Bit on localhost:24224).
+# Coolify: add as second compose file alongside compose.yml, then redeploy.
+# Also enable Drain Logs on the Vendure resource (Configuration → Advanced).
+
+services:
+  server:
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "localhost:24224"
+        labels: "coolify.projectName,coolify.environmentName,coolify.serviceName"
+  worker:
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: "localhost:24224"
+        labels: "coolify.projectName,coolify.environmentName,coolify.serviceName"

@@ -1,0 +1,84 @@
+type Voucher implements Node {
+    id: ID!
+    deletedAt: DateTime
+    createdAt: DateTime
+    updatedAt: DateTime
+    info: String
+    code: String
+    product_id: String
+    order_line_id: String
+    order_id: String
+    order_code: String
+    path: String
+    amount: Int
+    initialAmount: Int
+    currencyCode: String
+    validFrom: DateTime
+    validTo: DateTime
+    nth_product_item: String
+    customer: Customer
+}
+
+type VoucherList implements PaginatedList {
+    items: [Voucher!]!
+    totalItems: Int!
+}
+
+extend type Query {
+    findCodesByCustomer: [Voucher]
+    vouchers(options: VoucherListOptions): VoucherList!
+    ckeckAndCreateVoucherPdf(id: ID!): Boolean
+    voucher(id: ID!): Voucher
+    vouchersByCustomer(id: ID!, amount: Int!): [Voucher!]!
+}
+extend type Mutation {
+    createVoucher(input: CreateVoucherInput!): Voucher!
+    updateVoucher(input: UpdateVoucherInput!): Voucher!
+    useVoucher(id: ID!, amount: Int!): Voucher!
+    deleteVoucher(id: ID!): DeletionResponse!
+}
+
+input VoucherListOptions
+
+type GetVoucherDetail {
+	voucher(id: ID!): Voucher!
+}
+
+type UpdateVoucherDocument {
+	voucher(input: UpdateVoucherInput!): Voucher!
+}
+
+type CreateVoucherDocument {
+	voucher(input: CreateVoucherInput!): Voucher!
+}
+
+type VoucherListQuery {
+	vouchers: VoucherList
+}
+
+type VoucherDetailQuery {
+	voucher: Voucher
+}
+
+input CreateVoucherInput {
+    code: String
+    amount: Int
+    initialAmount: Int
+    customerId: ID
+    info: String
+    validFrom: DateTime
+    validTo: DateTime
+    path: String
+}
+
+input UpdateVoucherInput {
+	id: ID!
+    code: String
+    initialAmount: Int
+    amount: Int
+    customerId: ID
+    info: String
+    validFrom: DateTime
+    validTo: DateTime
+    path: String
+}

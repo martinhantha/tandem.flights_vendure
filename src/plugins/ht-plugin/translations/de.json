@@ -1,0 +1,138 @@
+{
+    "message": {
+        "error": {
+            "orderLineNotFound": "Leider konnten wir den Artikel nicht finden",
+            "couponLocalOnly": "Der Gutschein ist nur vor Ort einlösbar",
+            "couponValueExhausted": "Dein Guthaben ist bereits aufgebraucht",
+            "couponExpired": "Der Gutschein ist abgelaufen",
+            "couponNotYetValid": "Der Gutschein ist noch nicht gültig",
+            "couponNothingToDiscount": "Der Gutschein kann auf diesen Warenkorb nicht angerechnet werden",
+            "voucherNotice": {
+                "deleted": "Der Gutschein {code} ist nicht mehr gültig und wurde aus dem Warenkorb entfernt. Bitte prüfe den neuen Betrag.",
+                "expired": "Der Gutschein {code} ist abgelaufen und wurde aus dem Warenkorb entfernt. Bitte prüfe den neuen Betrag.",
+                "notYetValid": "Der Gutschein {code} ist noch nicht gültig und wurde aus dem Warenkorb entfernt. Bitte prüfe den neuen Betrag.",
+                "balance": "Das Guthaben des Gutscheins {code} hat sich geändert, der Rabatt wurde angepasst. Bitte prüfe den neuen Betrag."
+            },
+            "emailAlreadyUsed": "Zu dieser E-Mail-Adresse existiert bereits ein Account, bitte logge dich ganz normal ein."
+        }
+    },
+    "additionalChild": "{count} {count, plural, one {zusätzliches Kind} other {zusätzliche Kinder}}",
+    "common": {
+        "loading": "Laden...",
+        "delete": "Löschen",
+        "update": "Aktualisieren",
+        "id": "ID",
+        "created": "Erstellt",
+        "updated": "Aktualisiert",
+        "name": "Name",
+        "content": "Inhalt",
+        "isPublished": "Veröffentlicht",
+        "plainText": "Klartext",
+        "richText": "Rich Text",
+        "searchCountriesPlaceholder": "Länder suchen..."
+    },
+    "nav": {
+        "vouchers": "Gutscheine",
+        "contentManagement": "Content Management"
+    },
+    "shipping": {
+        "country": "Land",
+        "rate": "Versandkosten",
+        "freeShipping": "Gratis-Versand ab",
+        "taxRate": "Steuersatz",
+        "default": "Standard",
+        "addCountry": "Land hinzufügen",
+        "countryPlaceholder": "Land auswählen",
+        "noCountriesFound": "Keine Länder gefunden"
+    },
+    "pdfDesigner": {
+        "title": "Gutschein Designer",
+        "saveTemplate": "Template speichern",
+        "templateSaved": "Template gespeichert",
+        "saveFailed": "Template konnte nicht gespeichert werden"
+    },
+    "voucher": {
+        "title": "Gutscheine",
+        "newVoucher": "Neuer Gutschein",
+        "editVoucher": "Gutschein bearbeiten",
+        "code": "Code",
+        "amount": "Betrag (Cent)",
+        "initialAmount": "Ursprünglicher Betrag (Cent)",
+        "validFrom": "Gültig ab",
+        "validTo": "Gültig bis (inkl.)",
+        "customer": "Kunde",
+        "info": "Info",
+        "create": "Erstellen",
+        "save": "Speichern",
+        "searchCustomerPlaceholder": "Nach E-Mail suchen (min. 2 Zeichen)...",
+        "enterVoucherCode": "Gutschein-Code eingeben",
+        "enterAmount": "Betrag in Cent eingeben",
+        "enterInitialAmount": "Ursprünglichen Betrag in Cent eingeben",
+        "enterInfo": "Info eingeben",
+        "noCustomersFound": "Keine Kunden gefunden",
+        "searching": "Suche...",
+        "deleteConfirm": "{count} Gutschein(e) löschen?",
+        "loadFailed": "Gutschein konnte nicht geladen werden",
+        "createSuccess": "Gutschein erfolgreich erstellt",
+        "updateSuccess": "Gutschein erfolgreich aktualisiert",
+        "saveFailed": "Gutschein konnte nicht gespeichert werden",
+        "redeemOnSite": "Vor Ort eingelöst",
+        "redeemOnSiteConfirm": "Gutschein als vor Ort eingelöst markieren? Das Guthaben wird auf 0 gesetzt."
+    },
+    "textblock": {
+        "title": "Textbausteine",
+        "newTextblock": "Neuer Textbaustein",
+        "editTextblock": "Textbaustein bearbeiten",
+        "deleteConfirm": "{count} Textbaustein(e) löschen?",
+        "updateSuccess": "Textbaustein erfolgreich aktualisiert",
+        "updateFailed": "Textbaustein konnte nicht aktualisiert werden"
+    },
+    "resendOrderEmail": {
+        "menuLabel": "Bestell-E-Mail erneut senden",
+        "confirmTitle": "Bestell-E-Mail erneut senden?",
+        "confirmDescription": "Die Bestellbestätigung wird erneut an den Kunden gesendet.",
+        "confirm": "Senden",
+        "cancel": "Abbrechen",
+        "orderIdMissing": "Order ID fehlt",
+        "success": "Bestell-E-Mail wurde erneut gesendet.",
+        "failed": "Bestell-E-Mail konnte nicht gesendet werden"
+    },
+    "sepa": {
+        "menuLabel": "SEPA-Bankverbindung anzeigen",
+        "title": "SEPA-Bankverbindung",
+        "description": "Diese Daten sind sensibel. Bitte nach Gebrauch das Fenster schließen.",
+        "paymentId": "Payment ID",
+        "loading": "Lade…",
+        "noDataFound": "Keine SEPA-Daten gefunden",
+        "loadFailed": "SEPA-Daten konnten nicht geladen werden",
+        "close": "Schließen",
+        "accountHolder": "Kontoinhaber",
+        "iban": "IBAN",
+        "bicSwift": "BIC / SWIFT",
+        "bank": "Bank",
+        "mandateReference": "Mandatsreferenz",
+        "copied": "kopiert",
+        "copyFailed": "konnte nicht kopiert werden",
+        "copy": "kopieren"
+    },
+    "assetCache": {
+        "title": "Caches & Vorschau",
+        "introTitle": "Caches & Vorschau",
+        "intro": "Bildtransformations-Cache (cache/), die Shop-Kategorie-Menü-Redis-Cache oder die Asset-Vorschau-Dateien (preview/) löschen. Benötigt Katalog-Administrator-Berechtigungen.",
+        "clearTransformCache": "Bildtransformations-Cache löschen",
+        "clearTransformCacheHint": "Löscht nur zwischengespeicherte transformierte Bilder. Sicher, um in Produktion auszuführen; Bilder werden bei der nächsten Anfrage neu erstellt.",
+        "clearCollectionMenuCache": "Shop-Kategorie-Menü-Redis-Cache löschen",
+        "clearCollectionMenuCacheHint": "Löscht Redis-Schlüssel für zwischengespeicherte Kategorie-Menüs und Facet/Produkt-Listen. Sicher; Daten werden bei der nächsten Anfrage neu erstellt (kein Redis löscht nichts).",
+        "successMenuCleared": "Shop-Kategorie-Menü-Redis-Cache gelöscht",
+        "regeneratePreviews": "Vorschau-Dateien neu erstellen",
+        "regeneratePreviewsHint": "Erstellt Dateien unter preview/ aus der Quelle. Verwenden, wenn Vorschau-URLs nach Speicherbereinigung 404 zurückgeben. Kann einige Minuten dauern.",
+        "regenerateConfirm": "Alle Asset-Vorschau-Dateien aus der Quelle neu erstellen? Dies kann einige Zeit dauern.",
+        "normalizeSources": "Bildausrichtung korrigieren",
+        "normalizeSourcesHint": "Wendet EXIF-Drehung auf bestehende Quelldateien an, aktualisiert Breite/Höhe und erstellt Vorschauen. Führe dies einmal nach der Aktualisierung aus, wenn Bilder im Shop als gedreht angezeigt werden.",
+        "normalizeConfirm": "EXIF-Ausrichtung für alle Bild-Assets korrigieren? Dies kann einige Minuten dauern.",
+        "successNormalized": "Bildausrichtung korrigiert",
+        "successCleared": "Bildtransformations-Cache gelöscht",
+        "successRegenerated": "Vorschau-Neuerstellung abgeschlossen",
+        "failed": "Operation fehlgeschlagen"
+    }
+}

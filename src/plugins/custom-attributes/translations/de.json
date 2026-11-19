@@ -1,0 +1,91 @@
+{
+    "custom-attributes": {
+        "attribute-properties": {
+            "title": "Attribut-Eigenschaften",
+            "breadcrumb": "Attribut-Eigenschaften",
+            "newAttributeProperty": "Neue Attribut-Eigenschaft",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "label": "Bezeichnung (Interner Name)",
+                "sorting": "Sortierung",
+                "type": "Typ",
+                "comparable": "Vergleichbar",
+                "searchable": "Durchsuchbar",
+                "filterable-in-list": "Filterbar in Liste",
+                "filterable-in-search": "Filterbar in Suche",
+                "visible-in-productdetail": "Sichtbar in Produktdetails",
+                "defaultValue": "Standardwert",
+                "translatable": "Übersetzbar"
+            },
+            "settings": "Einstellungen",
+            "selectType": "Typ auswählen",
+            "typeText": "Text",
+            "typeTextarea": "Textbereich",
+            "typeNumber": "Zahl",
+            "typeJson": "JSON"
+        },
+        "facet-attribute": {
+            "title": "Benutzerdefinierte Attribute",
+            "breadcrumb": "Benutzerdefinierte Attribute",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "value": "Wert",
+                "facet": "Facette",
+                "useDefault": "Standardwert verwenden"
+            }
+        },
+        "product-attribute": {
+            "title": "Benutzerdefinierte Attribute",
+            "breadcrumb": "Benutzerdefinierte Attribute",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "value": "Wert",
+                "product": "Produkt",
+                "useDefault": "Standardwert verwenden"
+            }
+        },
+        "productvariant-attribute": {
+            "title": "Benutzerdefinierte Attribute",
+            "breadcrumb": "Benutzerdefinierte Attribute",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "value": "Wert",
+                "productvariant": "Produktvariante",
+                "useDefault": "Standardwert verwenden"
+            }
+        },
+        "common": {
+            "create": "Erstellen",
+            "update": "Aktualisieren",
+            "cancel": "Abbrechen",
+            "save": "Speichern",
+            "delete": "Löschen",
+            "actions": "Aktionen",
+            "addAttribute": "Attribut hinzufügen",
+            "editAttribute": "Attribut bearbeiten",
+            "createAttribute": "Attribut erstellen",
+            "attribute": "Attribut",
+            "selectAttribute": "Attribut auswählen",
+            "loading": "Laden...",
+            "noAttributesDefined": "Keine Attribute definiert",
+            "deleteConfirm": "Dieses Attribut löschen?",
+            "successSaved": "Attribut-Eigenschaft erfolgreich gespeichert",
+            "successCreated": "Attribut erstellt",
+            "successUpdated": "Attribut aktualisiert",
+            "successDeleted": "Attribut gelöscht",
+            "errorSave": "Fehler beim Speichern der Attribut-Eigenschaft",
+            "errorSelectAttribute": "Bitte wähle eine Attribut-Eigenschaft aus",
+            "addAccordion": "Accordion hinzufügen",
+            "removeAccordion": "Entfernen",
+            "accordionTitle": "Accordion-Titel",
+            "accordionContent": "Accordion-Inhalt",
+            "noAccordions": "Noch keine Accordions"
+        },
+        "yes": "ja",
+        "no": "nein"
+    }
+}

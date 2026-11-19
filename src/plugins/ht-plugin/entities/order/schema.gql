@@ -1,0 +1,4 @@
+extend type Mutation {
+    setOrderSelectedPaymentMethod(paymentMethodCode: String): Order
+    incrementOrderWithdrawalCount(orderCode: String!): Int!
+}

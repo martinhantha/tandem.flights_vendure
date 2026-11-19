@@ -1,0 +1,91 @@
+{
+    "custom-attributes": {
+        "attribute-properties": {
+            "title": "Proprietà dell'attributo",
+            "breadcrumb": "Proprietà dell'attributo",
+            "newAttributeProperty": "Nuova proprietà attributo",
+            "properties": {
+                "code": "Codice",
+                "name": "Nome",
+                "label": "Etichetta (Nome Interno)",
+                "sorting": "Ordine",
+                "type": "Tipo",
+                "comparable": "Confrontabile",
+                "searchable": "Ricercabile",
+                "filterable-in-list": "Filtrabile nella lista",
+                "filterable-in-search": "Filtrabile nella ricerca",
+                "visible-in-productdetail": "Visibile nei dettagli prodotto",
+                "defaultValue": "Valore predefinito",
+                "translatable": "Traslatabile"
+            },
+            "settings": "Impostazioni",
+            "selectType": "Seleziona tipo",
+            "typeText": "Testo",
+            "typeTextarea": "Area di testo",
+            "typeNumber": "Numero",
+            "typeJson": "JSON"
+        },
+        "facet-attribute": {
+            "title": "Attributi personalizzati",
+            "breadcrumb": "Attributi personalizzati",
+            "properties": {
+                "code": "Codice",
+                "name": "Nome",
+                "value": "Valore",
+                "facet": "Facetta",
+                "useDefault": "Usa valore predefinito"
+            }
+        },
+        "product-attribute": {
+            "title": "Attributi personalizzati",
+            "breadcrumb": "Attributi personalizzati",
+            "properties": {
+                "code": "Codice",
+                "name": "Nome",
+                "value": "Valore",
+                "product": "Prodotto",
+                "useDefault": "Usa valore predefinito"
+            }
+        },
+        "productvariant-attribute": {
+            "title": "Attributi personalizzati",
+            "breadcrumb": "Attributi personalizzati",
+            "properties": {
+                "code": "Codice",
+                "name": "Nome",
+                "value": "Valore",
+                "productvariant": "Variante prodotto",
+                "useDefault": "Usa valore predefinito"
+            }
+        },
+        "common": {
+            "create": "Crea",
+            "update": "Aggiorna",
+            "cancel": "Annulla",
+            "save": "Salva",
+            "delete": "Elimina",
+            "actions": "Azioni",
+            "addAttribute": "Aggiungi attributo",
+            "editAttribute": "Modifica attributo",
+            "createAttribute": "Crea attributo",
+            "attribute": "Attributo",
+            "selectAttribute": "Seleziona attributo",
+            "loading": "Caricamento...",
+            "noAttributesDefined": "Nessun attributo definito",
+            "deleteConfirm": "Eliminare questo attributo?",
+            "successSaved": "Proprietà attributo salvata con successo",
+            "successCreated": "Attributo creato",
+            "successUpdated": "Attributo aggiornato",
+            "successDeleted": "Attributo eliminato",
+            "errorSave": "Impossibile salvare la proprietà attributo",
+            "errorSelectAttribute": "Seleziona una proprietà attributo",
+            "addAccordion": "Aggiungi accordion",
+            "removeAccordion": "Rimuovi",
+            "accordionTitle": "Titolo accordion",
+            "accordionContent": "Contenuto accordion",
+            "noAccordions": "Nessun accordion"
+        },
+        "yes": "sì",
+        "no": "no"
+    }
+}

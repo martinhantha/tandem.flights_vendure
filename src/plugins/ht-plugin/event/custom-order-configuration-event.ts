@@ -1,0 +1,7 @@
+import { Order, RequestContext, VendureEvent } from '@vendure/core'
+
+export class CustomOrderConfirmationEvent extends VendureEvent {
+	constructor(public ctx: RequestContext, public order: Order, public email?: string) {
+		super()
+	}
+}

@@ -1,0 +1,4 @@
+extend type SearchResult {
+    fullSlug: String
+    fullProductVariant: ProductVariant
+}

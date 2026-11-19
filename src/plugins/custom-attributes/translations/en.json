@@ -1,0 +1,91 @@
+{
+    "custom-attributes": {
+        "attribute-properties": {
+            "title": "Attribute Properties",
+            "breadcrumb": "Attribute Properties",
+            "newAttributeProperty": "New Attribute Property",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "label": "Label (Internal Name)",
+                "sorting": "Sorting",
+                "type": "Type",
+                "comparable": "Comparable",
+                "searchable": "Searchable",
+                "filterable-in-list": "Filterable in List",
+                "filterable-in-search": "Filterable in Search",
+                "visible-in-productdetail": "Visible in Product Detail",
+                "defaultValue": "Default Value",
+                "translatable": "Translatable"
+            },
+            "settings": "Settings",
+            "selectType": "Select type",
+            "typeText": "Text",
+            "typeTextarea": "TextArea",
+            "typeNumber": "Number",
+            "typeJson": "JSON"
+        },
+        "facet-attribute": {
+            "title": "Custom Attributes",
+            "breadcrumb": "Custom Attributes",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "value": "Value",
+                "facet": "Facet",
+                "useDefault": "Use default value"
+            }
+        },
+        "product-attribute": {
+            "title": "Custom Attributes",
+            "breadcrumb": "Custom Attributes",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "value": "Value",
+                "product": "Product",
+                "useDefault": "Use default value"
+            }
+        },
+        "productvariant-attribute": {
+            "title": "Custom Attributes",
+            "breadcrumb": "Custom Attributes",
+            "properties": {
+                "code": "Code",
+                "name": "Name",
+                "value": "Value",
+                "productvariant": "Product Variant",
+                "useDefault": "Use default value"
+            }
+        },
+        "common": {
+            "create": "Create",
+            "update": "Update",
+            "cancel": "Cancel",
+            "save": "Save",
+            "delete": "Delete",
+            "actions": "Actions",
+            "addAttribute": "Add Attribute",
+            "editAttribute": "Edit Attribute",
+            "createAttribute": "Create Attribute",
+            "attribute": "Attribute",
+            "selectAttribute": "Select attribute",
+            "loading": "Loading...",
+            "noAttributesDefined": "No attributes defined",
+            "deleteConfirm": "Delete this attribute?",
+            "successSaved": "Successfully saved attribute property",
+            "successCreated": "Attribute created",
+            "successUpdated": "Attribute updated",
+            "successDeleted": "Attribute deleted",
+            "errorSave": "Failed to save attribute property",
+            "errorSelectAttribute": "Please select an attribute property",
+            "addAccordion": "Add Accordion",
+            "removeAccordion": "Remove",
+            "accordionTitle": "Accordion Title",
+            "accordionContent": "Accordion Content",
+            "noAccordions": "No Accordions"
+        },
+        "yes": "yes",
+        "no": "no"
+    }
+}

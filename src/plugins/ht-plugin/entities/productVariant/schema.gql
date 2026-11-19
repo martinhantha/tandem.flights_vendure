@@ -1,0 +1,4 @@
+extend type ProductVariant {
+    referencePrice: Money!
+    referencePriceWithTax: Money!
+}

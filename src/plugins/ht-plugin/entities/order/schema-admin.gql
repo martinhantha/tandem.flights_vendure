@@ -1,0 +1,12 @@
+extend type Mutation {
+    resendOrderEmail(orderId: ID!, email: String): Boolean
+    revealSepaDetails(paymentId: ID!): SepaDetails
+}
+
+type SepaDetails {
+    accountHolder: String!
+    iban: String!
+    bic: String!
+    bankName: String!
+    mandateReference: String!
+}

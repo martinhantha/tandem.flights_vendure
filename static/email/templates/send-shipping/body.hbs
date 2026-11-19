@@ -1,0 +1,67 @@
+{{> header title=title }}
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}" border-bottom="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em">
+            {{ title }}
+        </mj-text>
+         <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            {{{ text }}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="20px 10px 20px 10px" border-right="{{ border }}" border-left="{{ border }}" background-color="{{ colorCta }}">
+    <mj-column padding="0 10px 0 10px">
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="700" align="center">{{ codeTitle }}</mj-text>
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300" align="center">{{ order.code }}</mj-text>
+    </mj-column>
+    <mj-column padding="0 10px 0 10px">
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="700" align="center">{{ dateTitle }}</mj-text>
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300" align="center">{{ formatDate order.orderPlacedAt handlebarsDateFormat }}</mj-text>
+    </mj-column>
+    <mj-column padding="0 10px 0 10px">
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="700" align="center">{{ totalTitle }}</mj-text>
+        <mj-text padding="0" color="{{ white }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300" align="center">{{ formatMoney order.totalWithTax order.currencyCode languageCode }}</mj-text>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+         <mj-spacer height="20px" />
+     </mj-column>
+</mj-section>
+
+{{#if fulfillmentsWithTracking}}
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        <mj-text padding="0 0 10px 0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em" >
+            {{ fulfillmentsTitle }}
+        </mj-text>
+        <mj-table padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52">
+            {{#each fulfillmentsWithTracking }}
+                 <tr style="vertical-align:top;{{#unless @first}}border-top:1px solid {{ ../borderColor }};{{/unless}}">
+                    <td style="padding:10px 10px 10px 0;">{{method}}</td>
+                    <td style="padding:10px 0 10px 0;text-align:right;white-space:nowrap !important;">{{trackingCode}}</td>
+                </tr>
+            {{/each}}
+        </mj-table>
+     </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+{{/if}}
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}" border-bottom="{{ border }}">
+    <mj-column>
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+            {{ text2 }}
+        </mj-text>
+    </mj-column>
+</mj-section>
+
+{{> footer }}

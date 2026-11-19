@@ -1,0 +1,18 @@
+type FreeShippingInfo {
+    "Free-shipping threshold in cents (subtotal incl. tax). 0 means no threshold configured."
+    threshold: Int!
+    "How many cents are still missing until the threshold is reached. 0 once qualified."
+    remaining: Int!
+    "True when the active order's subtotal already meets the threshold."
+    qualified: Boolean!
+    "Country used to look up the threshold, or null when none could be resolved."
+    country: Country
+}
+
+extend type Query {
+    """
+    Returns the free-shipping threshold and remaining amount.
+    Country resolution priority: explicit `countryCode` arg > active order's shipping address > null.
+    """
+    freeShippingInfo(countryCode: String): FreeShippingInfo!
+}

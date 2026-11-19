@@ -1,0 +1,56 @@
+services:
+  server_base:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - vendure-server-base:latest
+    entrypoint: ["true"]
+    restart: "no"
+  server:
+    image: vendure-server-base
+    pull_policy: never
+    depends_on:
+      - server_base
+    ports:
+      - 4000:4000
+    command: ["yarn", "start:server"]
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+        labels: "coolify.projectName,coolify.environmentName,coolify.serviceName"
+    networks:
+      - coolify
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+      start_period: 10s
+  worker:
+    image: vendure-server-base
+    pull_policy: never
+    depends_on:
+      - server_base
+    command: ["yarn", "start:worker"]
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+        labels: "coolify.projectName,coolify.environmentName,coolify.serviceName"
+    networks:
+      - coolify
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3020/health"]
+      interval: 5s
+      timeout: 2s
+      retries: 5
+      start_period: 10s
+
+networks:
+  coolify:
+    external: true

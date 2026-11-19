@@ -1,0 +1,128 @@
+############################################
+# EXTENDS                                  #
+############################################
+
+extend type Query {
+    attributeProperty(id: ID): AttributeProperty
+    attributePropertyByCode(code: String!): AttributeProperty
+    attributeProperties(options: AttributePropertyListOptions): AttributePropertyList!
+}
+
+extend type Mutation {
+    createAttributeProperty(input: CreateAttributePropertyInput!): AttributeProperty!
+    updateAttributeProperty(input: UpdateAttributePropertyInput!): AttributeProperty!
+    deleteAttributeProperty(id: ID!): DeletionResponse!
+}
+
+############################################
+# TYPES                                    #
+############################################
+
+type AttributeProperty implements Node {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    code: String!
+    type: String!
+    label: String!
+    sorting: Int!
+    translatable: Boolean!
+    comparable: Boolean!
+    searchable: Boolean!
+    filterable_in_list: Boolean!
+    filterable_in_search: Boolean!
+    visible_in_productdetail: Boolean!
+
+    languageCode: LanguageCode!
+    name: String!
+    defaultValue: String
+    translations: [AttributePropertyTranslation!]!
+}
+
+type AttributePropertyTranslation {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    languageCode: LanguageCode!
+
+    name: String!
+    defaultValue: String
+}
+
+type AttributePropertyList implements PaginatedList {
+    items: [AttributeProperty!]!
+    totalItems: Int!
+}
+
+############################################
+# QUERY TYPES                              #
+############################################
+
+input AttributePropertyListOptions
+
+type AttributePropertyListQuery {
+    attributeProperties: AttributePropertyList
+}
+
+type AttributePropertyQuery {
+    attributeProperty: AttributeProperty
+}
+
+############################################
+# CUD - CREATE, UPDATE, DELETE             #
+############################################
+
+input AttributePropertyTranslationInput {
+    id: ID
+    languageCode: LanguageCode!
+
+    name: String!
+    defaultValue: String!
+}
+
+input CreateAttributePropertyInput {
+    code: String!
+
+    name: String!
+    type: String!
+    label: String!
+    sorting: Int!
+    defaultValue: String!
+    translatable: Boolean!
+    comparable: Boolean!
+    searchable: Boolean!
+    filterable_in_list: Boolean!
+    filterable_in_search: Boolean!
+    visible_in_productdetail: Boolean!
+
+    translations: [AttributePropertyTranslationInput!]!
+}
+
+input CreateAttributePropertyMutationVariables {
+    input: CreateAttributePropertyInput
+}
+
+input UpdateAttributePropertyInput {
+    id: ID
+    code: String!
+
+    type: String!
+    label: String!
+    sorting: Int!
+    translatable: Boolean!
+    comparable: Boolean!
+    searchable: Boolean!
+    filterable_in_list: Boolean!
+    filterable_in_search: Boolean!
+    visible_in_productdetail: Boolean!
+
+    name: String!
+    defaultValue: String!
+    translations: [AttributePropertyTranslationInput!]!
+}
+
+input DeleteAttributePropertyInput {
+    id: ID
+}

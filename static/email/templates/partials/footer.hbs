@@ -1,0 +1,19 @@
+<!--suppress ALL -->
+<mj-section padding="20px 25px 0 25px">
+    <mj-column>
+        <mj-text padding="0" color="{{ colorFont }}" font-family="{{ fontFamily }}" font-size="15px" line-height="1.2" font-weight="300">
+            <div>{{{ footerText }}}</div>
+            <div><a href="tel:{{ shopPhone }}" style="color:{{ colorFont }};text-decoration: none;">{{ shopPhone }}</a> | <a href="mailto:{{ shopEmail }}" style="color:{{ colorFont }};text-decoration: none;">{{ shopEmail }}</a></div>
+            {{#if footerLinks.length }}
+            <div>{{#each footerLinks }}{{#unless @first }} | {{/unless}}<a href="{{{ url }}}" style="color:{{ @root.colorFont }};text-decoration: none;">{{ title }}</a>{{/each}}</div>
+            {{/if}}
+        </mj-text>
+    </mj-column>
+</mj-section>
+<mj-section padding="0">
+    <mj-column>
+        <mj-spacer height="60px" />
+    </mj-column>
+</mj-section>
+</mj-body>
+</mjml>

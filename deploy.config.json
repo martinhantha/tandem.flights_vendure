@@ -1,0 +1,11 @@
+{
+    "git": {
+        "developBranch": "develop",
+        "productionBranch": "master"
+    },
+    "coolify": {
+        "repo": "martinhantha/tandem.flights_vendure",
+        "webhookUrls": []
+    },
+    "currentState": "dev"
+}

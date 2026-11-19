@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Vendure Dev",
+            "type": "shell",
+            "command": "trap 'exec $SHELL' INT; cd \"${workspaceFolder}/../\"*vendure && yarn devlocal",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "group": "dev",
+                "reveal": "always",
+                "panel": "new",
+                "close": false,
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Nuxt Dev",
+            "type": "shell",
+            "command": "trap 'exec $SHELL' INT; cd \"${workspaceFolder}/../\"*nuxt && (sleep 8 && open http://localhost:3000) & source ~/.nvm/nvm.sh && nvm use 24 && yarn dev",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "group": "dev",
+                "reveal": "always",
+                "panel": "new",
+                "close": false,
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Dashboard",
+            "type": "shell",
+            "command": "trap 'exec $SHELL' INT; cd \"${workspaceFolder}/../\"*vendure && (sleep 10 && \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --user-data-dir=\"$HOME/Library/Application Support/Google/Chrome\" --profile-directory=\"Profile 4\" --new-window \"http://localhost:5173/dashboard\") & npx vite; exec $SHELL",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "group": "dev",
+                "reveal": "always",
+                "panel": "new",
+                "close": false,
+                "showReuseMessage": false
+            }
+        },
+        {
+            "label": "Start Vendure backend, frontend and Nuxt",
+            "dependsOn": ["Vendure Dev", "Nuxt Dev", "Dashboard"],
+            "dependsOrder": "parallel",
+            "problemMatcher": []
+        },
+        {
+            "label": "Install ssh und docker context",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "${workspaceFolder}/scripts/initSshDockerContext.js"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        }
+    ]
+}

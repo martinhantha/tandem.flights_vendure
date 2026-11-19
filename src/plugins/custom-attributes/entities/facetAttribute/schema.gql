@@ -1,0 +1,93 @@
+############################################
+# EXTENDS                                  #
+############################################
+
+extend type Query {
+    facetAttributes(options: FacetAttributeListOptions): FacetAttributeList!
+    facetAttribute(id: ID, facetId: ID, code: String): FacetAttribute
+}
+
+extend type Mutation {
+    createFacetAttribute(input: CreateFacetAttributeInput!): FacetAttribute!
+    updateFacetAttribute(input: UpdateFacetAttributeInput!): FacetAttribute!
+    deleteFacetAttribute(input: DeleteFacetAttributeInput!): DeletionResponse!
+}
+
+############################################
+# TYPES                                    #
+############################################
+
+type FacetAttribute implements Node {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    facetId: ID
+    
+    attributePropertyId: ID
+    attributeProperty: AttributeProperty
+
+    languageCode: LanguageCode!
+    value: String!
+    translations: [FacetAttributeTranslation!]!
+}
+
+type FacetAttributeTranslation {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    languageCode: LanguageCode!
+
+    value: String!
+}
+
+type FacetAttributeList implements PaginatedList {
+    items: [FacetAttribute!]!
+    totalItems: Int!
+}
+
+############################################
+# QUERY TYPES                              #
+############################################
+
+input FacetAttributeListOptions
+
+type FacetAttributeListQuery {
+    facetAttributes: FacetAttributeList
+}
+
+type FacetAttributeQuery {
+    facetAttribute: FacetAttribute
+}
+
+############################################
+# CUD - CREATE, UPDATE, DELETE             #
+############################################
+
+input FacetAttributeTranslationInput {
+    id: ID
+    languageCode: LanguageCode!
+    value: String
+}
+
+input CreateFacetAttributeInput {
+    facetId: ID!
+    attributePropertyId: ID
+    translations: [FacetAttributeTranslationInput!]!
+}
+
+input CreateFacetAttributeMutationVariables {
+    input: CreateFacetAttributeInput
+}
+
+input UpdateFacetAttributeInput {
+    id: ID
+    facetId: ID!
+    attributePropertyId: ID
+    translations: [FacetAttributeTranslationInput!]!
+}
+
+input DeleteFacetAttributeInput {
+    id: ID!
+}

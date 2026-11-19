@@ -1,0 +1,6 @@
+{
+	"watch": ["src"],
+	"ext": "ts",
+	"ignore": ["src/**/*.spec.ts", "src/**/ui/**", "src/**/dashboard/**", "schema.graphql"],
+	"exec": "concurrently \"node -r ts-node/register ./src/index-worker.ts\" \"node -r ts-node/register ./src/index.ts\""
+}

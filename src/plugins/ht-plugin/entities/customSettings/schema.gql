@@ -1,0 +1,67 @@
+type CustomSettings implements Node {
+	id: ID!
+    name: String!
+    value: String!  
+}
+
+type CustomSettingsList implements PaginatedList {
+	items: [CustomSettings!]!
+	totalItems: Int!
+}
+
+type GetCustomSettingsDetail {
+	customSettings(id: ID!): CustomSettings!
+}
+
+type UpdateCustomSettingsDocument {
+	customSettings(input: UpdateCustomSettingsInput!): CustomSettings!
+}
+
+type CreateCustomSettingsDocument {
+	customSettings(input: CreateCustomSettingsInput!): CustomSettings!
+}
+
+extend type Query {
+	customSettings(id: ID, name: String): CustomSettings
+}
+
+extend type Mutation {
+	createCustomSettings(input: CreateCustomSettingsInput!): CustomSettings
+	updateCustomSettings(input: UpdateCustomSettingsInput!): CustomSettings
+	deleteCustomSettings(id: ID!): DeletionResponse!
+}
+
+input CustomSettingsListOptions
+
+type CustomSettingsDetailQuery {
+	customSettings: CustomSettings
+}
+
+type CustomSettingsListQuery {
+	customSettings: CustomSettingsList
+}
+
+type GetCustomSettingsListQuery {
+	customSettings: CustomSettingsList!
+}
+
+type CustomSettingsQuery {
+	customSettings: CustomSettings
+}
+
+input CustomSettingsInput {
+    id: ID
+    name: String
+    value: String
+}
+
+input CreateCustomSettingsInput {
+    name: String
+    value: String
+}
+
+input UpdateCustomSettingsInput {
+	id: ID!
+    name: String
+    value: String
+}

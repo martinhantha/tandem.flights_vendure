@@ -1,0 +1,94 @@
+############################################
+# EXTENDS                                  #
+############################################
+
+extend type Query {
+    productVariantAttributes(options: ProductVariantAttributeListOptions): ProductVariantAttributeList!
+    productVariantAttribute(id: ID, productVariantId: ID, code: String): ProductVariantAttribute
+}
+
+extend type Mutation {
+    createProductVariantAttribute(input: CreateProductVariantAttributeInput!): ProductVariantAttribute!
+    updateProductVariantAttribute(input: UpdateProductVariantAttributeInput!): ProductVariantAttribute!
+    deleteProductVariantAttribute(input: DeleteProductVariantAttributeInput!): DeletionResponse!
+}
+
+############################################
+# TYPES                                    #
+############################################
+
+type ProductVariantAttribute implements Node {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    productVariant: ProductVariant
+    productVariantId: ID
+
+    attributeProperty: AttributeProperty
+    attributePropertyId: ID
+
+    languageCode: LanguageCode!
+    value: String!
+    translations: [ProductVariantAttributeTranslation!]!
+}
+
+type ProductVariantAttributeTranslation {
+    id: ID!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+
+    languageCode: LanguageCode!
+
+    value: String!
+}
+
+type ProductVariantAttributeList implements PaginatedList {
+    items: [ProductVariantAttribute!]!
+    totalItems: Int!
+}
+
+############################################
+# QUERY TYPES                              #
+############################################
+
+input ProductVariantAttributeListOptions
+
+type ProductVariantAttributeListQuery {
+    productVariantAttributes: ProductVariantAttributeList
+}
+
+type ProductVariantAttributeQuery {
+    productVariantAttribute: ProductVariantAttribute
+}
+
+############################################
+# CUD - CREATE, UPDATE, DELETE             #
+############################################
+
+input ProductVariantAttributeTranslationInput {
+    id: ID
+    languageCode: LanguageCode!
+    value: String
+}
+
+input CreateProductVariantAttributeInput {
+    productVariantId: ID!
+    attributePropertyId: ID
+    translations: [ProductVariantAttributeTranslationInput!]!
+}
+
+input CreateProductVariantAttributeMutationVariables {
+    input: CreateProductVariantAttributeInput
+}
+
+input UpdateProductVariantAttributeInput {
+    id: ID
+    productVariantId: ID!
+    attributePropertyId: ID
+    translations: [ProductVariantAttributeTranslationInput!]!
+}
+
+input DeleteProductVariantAttributeInput {
+    id: ID
+}

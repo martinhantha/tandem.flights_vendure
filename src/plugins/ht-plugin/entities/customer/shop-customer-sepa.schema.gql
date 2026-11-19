@@ -1,0 +1,17 @@
+"The SEPA mandate the active customer has stored for reuse. Deliberately carries no `iban` field — the full IBAN never leaves the server."
+type SavedSepaMandate {
+    accountHolder: String!
+    ibanMasked: String!
+    ibanLast4: String!
+    bic: String!
+    bankName: String!
+    savedAt: DateTime
+}
+
+extend type Query {
+    activeCustomerSepaMandate: SavedSepaMandate
+}
+
+extend type Mutation {
+    deleteActiveCustomerSepaMandate: Boolean!
+}

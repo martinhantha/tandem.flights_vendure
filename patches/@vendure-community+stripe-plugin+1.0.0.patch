@@ -1,0 +1,13 @@
+diff --git a/node_modules/@vendure-community/stripe-plugin/lib/stripe-utils.js b/node_modules/@vendure-community/stripe-plugin/lib/stripe-utils.js
+index d1bf6d9..fb43b41 100644
+--- a/node_modules/@vendure-community/stripe-plugin/lib/stripe-utils.js
++++ b/node_modules/@vendure-community/stripe-plugin/lib/stripe-utils.js
+@@ -41,6 +41,6 @@ function currencyHasFractionPart(currencyCode) {
+  * Ensures that the payment intent metadata object contains the expected properties, as defined by the plugin.
+  */
+ function isExpectedVendureStripeEventMetadata(metadata) {
+-    return !!metadata.channelToken && !!metadata.orderCode && !!metadata.orderId;
++    return !!metadata && !!metadata.channelToken && !!metadata.orderCode && !!metadata.orderId;
+ }
+ //# sourceMappingURL=stripe-utils.js.map
+\ No newline at end of file

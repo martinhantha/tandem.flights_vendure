@@ -1,0 +1,284 @@
+{
+  "basePdf": {
+    "width": 210,
+    "height": 297,
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "schemas": [
+    [
+      {
+        "name": "background",
+        "type": "image",
+        "content": "asset:voucher/background.jpg",
+        "position": {
+          "x": 15,
+          "y": 170
+        },
+        "width": 180,
+        "height": 110,
+        "rotate": 0,
+        "opacity": 1,
+        "readOnly": true
+      },
+      {
+        "name": "logo",
+        "type": "image",
+        "content": "asset:voucher/logo.jpg",
+        "position": {
+          "x": 15,
+          "y": 15
+        },
+        "width": 30,
+        "height": 38,
+        "rotate": 0,
+        "opacity": 1,
+        "readOnly": true
+      },
+      {
+        "name": "qrCode",
+        "type": "qrcode",
+        "content": "https://tandem.flights/qr?key=ABCD1234",
+        "position": {
+          "x": 160,
+          "y": 10
+        },
+        "width": 40,
+        "height": 40,
+        "rotate": 0,
+        "opacity": 1,
+        "backgroundColor": "#ffffff",
+        "barColor": "#3f4140"
+      },
+      {
+        "name": "code",
+        "type": "text",
+        "content": "ABCD1234",
+        "position": {
+          "x": 160,
+          "y": 51
+        },
+        "width": 40,
+        "height": 6,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 11,
+        "fontName": "Roboto",
+        "lineHeight": 1.2,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "hero",
+        "type": "image",
+        "content": "asset:voucher/hero.jpg",
+        "position": {
+          "x": 0,
+          "y": 60
+        },
+        "width": 210,
+        "height": 94.4,
+        "rotate": 0,
+        "opacity": 1,
+        "readOnly": true
+      },
+      {
+        "name": "voucherHeadline",
+        "type": "text",
+        "content": "Gutschein",
+        "position": {
+          "x": 15,
+          "y": 170
+        },
+        "width": 180,
+        "height": 12,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 30,
+        "fontName": "Roboto",
+        "lineHeight": 1,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "voucherSubline",
+        "type": "text",
+        "content": "für einen Tandemflug!",
+        "position": {
+          "x": 15,
+          "y": 182
+        },
+        "width": 180,
+        "height": 12,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 26,
+        "fontName": "Roboto",
+        "lineHeight": 1,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "title",
+        "type": "text",
+        "content": "Easy Flight",
+        "position": {
+          "x": 15,
+          "y": 199
+        },
+        "width": 180,
+        "height": 8,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 16,
+        "fontName": "Roboto",
+        "lineHeight": 1.2,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "content": "für Einsteiger und Genießer",
+        "position": {
+          "x": 15,
+          "y": 207
+        },
+        "width": 180,
+        "height": 7,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 11,
+        "fontName": "Roboto",
+        "lineHeight": 1.2,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "voucherQuote",
+        "type": "text",
+        "content": "Wenn du das Fliegen einmal erlebt hast, wirst du für immer\nauf Erden wandeln, mit deinen Augen himmelwärts gerichtet. Denn dort bist du\ngewesen und dort wird es dich immer wieder hinziehen.",
+        "position": {
+          "x": 15,
+          "y": 217
+        },
+        "width": 180,
+        "height": 20,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 11,
+        "fontName": "Roboto",
+        "lineHeight": 1.3,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "voucherQuoteAuthor",
+        "type": "text",
+        "content": "Leonardo da Vinci",
+        "position": {
+          "x": 15,
+          "y": 236
+        },
+        "width": 180,
+        "height": 5,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 8,
+        "fontName": "Roboto",
+        "lineHeight": 1.2,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "voucherContactText",
+        "type": "text",
+        "content": "Kontaktiere uns per Telefon +39 379 280 6070 um einen Termin zu vereinbaren.",
+        "position": {
+          "x": 15,
+          "y": 245
+        },
+        "width": 180,
+        "height": 6,
+        "rotate": 0,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "fontSize": 11,
+        "fontName": "Roboto",
+        "lineHeight": 1.2,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "textAddress",
+        "type": "text",
+        "content": "Tandem Flights Sarntal\nMartin +39 379 280 6070\ninfo@tandem.flights",
+        "position": {
+          "x": 15,
+          "y": 262
+        },
+        "width": 110,
+        "height": 18,
+        "rotate": 0,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "fontSize": 9,
+        "fontName": "Roboto",
+        "lineHeight": 1.3,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      },
+      {
+        "name": "textDate",
+        "type": "text",
+        "content": "Gültig bis: 31.12.2026",
+        "position": {
+          "x": 125,
+          "y": 274
+        },
+        "width": 70,
+        "height": 6,
+        "rotate": 0,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "fontSize": 9,
+        "fontName": "Roboto",
+        "lineHeight": 1.2,
+        "characterSpacing": 0,
+        "fontColor": "#3f4140",
+        "backgroundColor": "",
+        "opacity": 1
+      }
+    ]
+  ],
+  "pdfmeVersion": "6.1.11"
+}

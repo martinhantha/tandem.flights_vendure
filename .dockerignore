@@ -1,0 +1,11 @@
+.git
+.gitignore
+.vscode
+.idea
+.local.env
+.dockerignore
+compose.yml
+deploy.js
+condgen.ts
+node_modules
+README.md

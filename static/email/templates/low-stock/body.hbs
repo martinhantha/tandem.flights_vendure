@@ -1,0 +1,47 @@
+{{> header title=title }}
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-left="{{ border }}">
+    <mj-column>
+        {{#each languages }}
+            <mj-text padding="0 0 10px 0" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="22px" line-height="1.25" letter-spacing="0.02em">
+                {{ title }}
+            </mj-text>
+            <mj-text padding="0 0 20px 0" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+                {{ text }}
+            </mj-text>
+        {{/each}}
+        <mj-button font-family="{{ fontFamily }}"
+                   background-color=" {{ colorCta }}"
+                   color="{{ white }}"
+                   align="left"
+                   href="{{ shopAdminUrl }}/dashboard/product-variants/{{ variantId }}"
+                   border-radius="0"
+                   inner-padding="15px 25px 15px 25px"
+                   padding="0"
+                   font-size="15px"
+                   line-height="1.17"
+                   letter-spacing="0.05em"
+                   font-weight="700"
+                   text-transform="uppercase">
+            {{ buttonText }}
+        </mj-button>
+    </mj-column>
+</mj-section>
+
+<mj-section padding="0 15px 20px 15px" border-right="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        <mj-divider padding="0" border-width="1px" border-color="{{ borderColor }}" />
+     </mj-column>
+</mj-section>
+
+<mj-section padding="0 25px 20px 25px" border-right="{{ border }}" border-bottom="{{ border }}" border-left="{{ border }}">
+     <mj-column>
+        {{#each languages }}
+            <mj-text padding="{{#if @last}}0{{else}}0 0 10px 0{{/if}}" color="{{ ../colorFont }}" font-family="{{ ../fontFamily }}" font-size="17px" line-height="1.52" font-weight="300">
+                {{ info }}
+            </mj-text>
+        {{/each}}
+     </mj-column>
+</mj-section>
+
+{{> footer }}

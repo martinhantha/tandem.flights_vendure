@@ -1,0 +1,67 @@
+{
+    "handlebarsDateFormat": "dd.mm.yyyy",
+    "dateTimeFormat": "DD.MM.YYYY HH:mm",
+    "timeSuffix": "",
+    "footerText": "_SHOP_NAME_ | _SHOP_ADDRESS_",
+    "footerLinks": {
+        "withdrawal": "Modulo di recesso",
+        "imprint": "Note legali",
+        "privacy": "Privacy"
+    },
+    "emailVerification": {
+        "subject": "_SHOP_NAME_: Completa la registrazione",
+        "title": "Completa la registrazione",
+        "text": "Grazie per aver creato un account. Clicca sul pulsante qui sotto per confermare il tuo indirizzo e-mail e completare il processo di registrazione:",
+        "buttonText": "Conferma l'indirizzo e-mail",
+        "info": "Se non hai effettuato questa richiesta, puoi ignorare questa e-mail - non è stata apportata alcuna modifica al tuo account."
+    },
+    "passwordReset": {
+        "subject": "_SHOP_NAME_: Reimposta la password",
+        "title": "Reimposta la password",
+        "text": "È stata richiesta una nuova password per il tuo account.",
+        "buttonText": "Reimposta la password",
+        "info": "Se non hai effettuato questa richiesta, puoi ignorare questa e-mail - non è stata apportata alcuna modifica al tuo account."
+    },
+    "emailAddressChange": {
+        "subject": "_SHOP_NAME_: Modifica dell'indirizzo e-mail",
+        "title": "Modifica dell'indirizzo e-mail",
+        "text": "Abbiamo ricevuto una richiesta di modifica dell'indirizzo e-mail registrato. Clicca sul pulsante qui sotto per confermare l'indirizzo e completare la procedura:",
+        "buttonText": "Conferma l'indirizzo e-mail",
+        "info": "Se non hai effettuato questa richiesta, puoi ignorare questa e-mail - non è stata apportata alcuna modifica al tuo account."
+    },
+    "orderConfirmation": {
+        "subject": "_SHOP_NAME_: Conferma d'ordine",
+        "title": "Conferma d'ordine",
+        "codeTitle": "Ordine",
+        "dateTitle": "Data ordine",
+        "totalTitle": "Importo",
+        "contactTitle": "Informazioni di contatto",
+        "billingAddressTitle": "Indirizzo di fatturazione",
+        "shippingAddressTitle": "Indirizzo di spedizione",
+        "shippingMethodTitle": "Metodo di spedizione",
+        "paymentMethodTitle": "Metodo di pagamento",
+        "orderLinesTitle": "Dettagli ordine",
+        "deliveryTimeTitle": "Tempi di consegna previsti:",
+        "discountTitle": "Codice buono:",
+        "subTotalTitle": "Subtotale",
+        "shippingTitle": "Spedizione:",
+        "taxTitle": "di cui IVA",
+        "voucherInfo": "Il buono verrà spedito non appena ricevuto il pagamento.",
+        "seeMore": "Vuoi continuare a navigare?",
+        "toTheShop": "Al negozio",
+        "voucherZipUrlButtonText": "Scarica buono"
+    },
+    "sendVoucher": {
+        "subject": "_SHOP_NAME_: Buoni d'ordine",
+        "voucherZipUrlButtonText": "Scarica buono",
+        "title": "Il tuo buono",
+        "text": "in allegato troverai il tuo buono."
+    },
+    "sendShipping": {
+        "subject": "_SHOP_NAME_: Conferma di spedizione",
+        "title": "Il tuo ordine è stato spedito",
+        "text": "Siamo lieti di informarti che il tuo ordine è stato spedito.<br>Trova tutti i dettagli qui sotto.",
+        "fulfillmentsTitle": "Informazioni sulla spedizione",
+        "text2": "Ti auguriamo tanto piacere con i tuoi nuovi prodotti e speriamo di poterti accogliere nuovamente al più presto."
+    }
+}

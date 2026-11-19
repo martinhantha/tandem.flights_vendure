@@ -1,0 +1,33 @@
+type RefreshImageCacheResult {
+    success: Boolean!
+    message: String!
+    deletedCount: Int!
+}
+
+type RegenerateAssetPreviewsResult {
+    success: Boolean!
+    message: String!
+    regeneratedCount: Int!
+    failedCount: Int!
+}
+
+type NormalizeAssetSourcesResult {
+    success: Boolean!
+    message: String!
+    normalizedCount: Int!
+    skippedCount: Int!
+    failedCount: Int!
+}
+
+type ClearCollectionMenuCacheResult {
+    success: Boolean!
+    message: String!
+    deletedKeys: Int!
+}
+
+extend type Mutation {
+    refreshImageCache: RefreshImageCacheResult!
+    regenerateAssetPreviews: RegenerateAssetPreviewsResult!
+    normalizeAssetSources: NormalizeAssetSourcesResult!
+    clearCollectionMenuCache: ClearCollectionMenuCacheResult!
+}

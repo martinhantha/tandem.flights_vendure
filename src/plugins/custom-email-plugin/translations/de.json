@@ -1,0 +1,67 @@
+{
+    "handlebarsDateFormat": "dd.mm.yyyy",
+    "dateTimeFormat": "DD.MM.YYYY HH:mm",
+    "timeSuffix": "Uhr",
+    "footerText": "_SHOP_NAME_ | _SHOP_ADDRESS_",
+    "footerLinks": {
+        "withdrawal": "Widerrufsformular",
+        "imprint": "Impressum",
+        "privacy": "Datenschutz"
+    },
+    "emailVerification": {
+        "subject": "_SHOP_NAME_: Registrierung abschließen",
+        "title": "Registrierung abschließen",
+        "text": "Danke, dass du ein Konto erstellt hast. Klicke auf die Schaltfläche unten, um deine E-Mail-Adresse zu bestätigen und den Registrierungsprozess abzuschließen:",
+        "buttonText": "E-Mail bestätigen",
+        "info": "Wenn du diese Anfrage nicht gestellt hast, kannst du diese E-Mail ignorieren - an deinem Konto wurde nichts geändert."
+    },
+    "passwordReset": {
+        "subject": "_SHOP_NAME_: Passwort zurücksetzen",
+        "title": "Passwort zurücksetzen",
+        "text": "Es wurde ein neues Passwort für dein Konto angefordert.",
+        "buttonText": "Passwort zurücksetzen",
+        "info": "Wenn du diese Anfrage nicht gestellt hast, kannst du diese E-Mail ignorieren - an deinem Konto wurde nichts geändert."
+    },
+    "emailAddressChange": {
+        "subject": "_SHOP_NAME_: Änderung E-Mail-Adresse",
+        "title": "Änderung E-Mail-Adresse",
+        "text": "Wir haben eine Anfrage erhalten, deine registrierte E-Mail-Adresse zu ändern. Klicke auf die Schaltfläche unten, um die Adresse zu bestätigen und den Vorgang abzuschließen:",
+        "buttonText": "E-Mail bestätigen",
+        "info": "Wenn du diese Anfrage nicht gestellt hast, kannst du diese E-Mail ignorieren - an deinem Konto wurde nichts geändert."
+    },
+    "orderConfirmation": {
+        "subject": "_SHOP_NAME_: Bestellbestätigung",
+        "title": "Bestellbestätigung",
+        "codeTitle": "Bestellung",
+        "dateTitle": "Bestelldatum",
+        "totalTitle": "Summe",
+        "contactTitle": "Kontaktinformationen",
+        "billingAddressTitle": "Rechnungsadresse",
+        "shippingAddressTitle": "Versandadresse",
+        "shippingMethodTitle": "Versandmethode",
+        "paymentMethodTitle": "Zahlungsart",
+        "orderLinesTitle": "Details der Bestellung",
+        "deliveryTimeTitle": "Voraussichtliche Lieferzeit:",
+        "discountTitle": "Gutscheincode:",
+        "subTotalTitle": "Zwischensumme",
+        "shippingTitle": "Versand:",
+        "taxTitle": "davon MwSt.",
+        "voucherInfo": "Der Gutschein wird versendet, sobald die Zahlung eingegangen ist.",
+        "seeMore": "Du möchtest noch weiter stöbern?",
+        "toTheShop": "Zum Shop",
+        "voucherZipUrlButtonText": "Gutschein herunterladen"
+    },
+    "sendVoucher": {
+        "subject": "_SHOP_NAME_: Gutscheine der Bestellung",
+        "voucherZipUrlButtonText": "Gutschein herunterladen",
+        "title": "Dein Gutschein",
+        "text": "anbei findest du deinen Gutschein."
+    },
+    "sendShipping": {
+        "subject": "_SHOP_NAME_: Versandbestätigung",
+        "title": "Deine Bestellung wurde versendet",
+        "text": "Wir freuen uns, dir mitteilen zu können, dass deine Bestellung versendet wurde.<br>Die Details dazu findest du hier:",
+        "fulfillmentsTitle": "Versandinformationen",
+        "text2": "Wir wünschen dir viel Freude mit deinen neuen Produkten und hoffen, dich bald wieder bei uns begrüßen zu dürfen."
+    }
+}

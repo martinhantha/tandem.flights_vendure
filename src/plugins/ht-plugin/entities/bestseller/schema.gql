@@ -1,0 +1,41 @@
+type Bestseller implements Node {
+	id: ID!
+	createdAt: DateTime!
+	updatedAt: DateTime!
+    productVariant: ProductVariant
+	productVariantId: ID
+    totalSales: Int!
+    date: DateTime
+    price: Int
+}
+
+input BestsellerListOptions {
+    skip: Int
+    limit: Int
+}
+
+type BestsellerList implements PaginatedList {
+    items: [Bestseller!]!
+    totalItems: Int!
+}
+
+type BestsellerListQuery {
+	bestsellers: BestsellerList
+}
+
+type GetBestsellerListQuery {
+	bestsellers: BestsellerList!
+}
+type BestsellerMapQuery {
+	bestsellerMap: BestsellerList
+}
+
+type GetBestsellerMapQuery {
+	bestsellerMap: BestsellerList!
+}
+
+extend type Query {
+	bestsellers(options: BestsellerListOptions): BestsellerList!
+	bestsellerMap(options: BestsellerListOptions): BestsellerList!
+	bestsellerProducts(options: ProductListOptions): ProductList!
+}
