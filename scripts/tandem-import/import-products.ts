@@ -20,6 +20,7 @@ import { SqlDump } from "./lib/sql-dump"
 
 const channelId = 1
 const defaultLanguageCode = LanguageCode.de
+const VARIANT_NAME: Record<string, string> = { de: "Gutschein", it: "Buono", en: "Voucher" }
 const assetsRootPath = path.join(__dirname, "assets/products")
 const TAX_CATEGORY_NAME = "Standard Tax"
 
@@ -49,6 +50,8 @@ function toRow(product: LegacyProduct): Record<string, string> {
         // the hidden variants get the sku in the slug, their names are not unique
         const slugBase = product.enabled ? product.name[lang] : `${product.name[lang]}-${product.sku}`
         row[`product:name:${lang}`] = product.name[lang]
+        // single variant per product: ht-shop shows "<product> <variant>", so the variant is named after its kind
+        row[`productVariant:name:${lang}`] = VARIANT_NAME[lang]
         row[`product:slug:${lang}`] = slugify(slugBase)
         row[`product:description:${lang}`] = product.description[lang]
         row[`product:customField:shortDescription:${lang}`] = product.shortDescription[lang]
