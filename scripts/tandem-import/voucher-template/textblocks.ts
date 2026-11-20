@@ -49,9 +49,10 @@ export const MAIL_TEXTBLOCKS: Record<string, Texts> = {
         it: `In allegato trovi i tuoi buoni in PDF. Ogni buono è valido un anno. Chiamaci al ${PHONE} per fissare un appuntamento.`,
         en: `Attached you will find your vouchers as PDF. Each voucher is valid for one year. Call us at ${PHONE} to make an appointment.`,
     },
+    // postal address only: the mail footer already prints the shop name (SHOP_NAME) and phone | e-mail
     shopAddress: {
-        de: `Tandem Flights Sarntal\nTel. ${PHONE}\ninfo@tandem.flights`,
-        it: `Tandem Flights Sarntal\nTel. ${PHONE}\ninfo@tandem.flights`,
-        en: `Tandem Flights Sarntal\nPhone ${PHONE}\ninfo@tandem.flights`,
+        de: `Reinswald 31/B, 39058 Sarntal, Italien`,
+        it: `Reinswald 31/B, 39058 Sarentino (BZ), Italia`,
+        en: `Reinswald 31/B, 39058 Sarntal, Italy`,
     },
 }
