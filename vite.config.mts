@@ -5,8 +5,11 @@ import { resolve, join } from 'path';
 
 export default defineConfig({
     base: '/dashboard',
+    // the dashboard plugin uses its own vite root, so point to the project's public/ (login logo)
+    publicDir: join(__dirname, 'public'),
     build: {
         outDir: join(__dirname, 'dist/dashboard'),
+        emptyOutDir: true,
     },
     plugins: [
         // Required to compile `@lingui/react/macro` usages in the Vendure dashboard (Vite dev + build).
@@ -17,7 +20,9 @@ export default defineConfig({
             // and custom fields that are configured.
             vendureConfigPath: pathToFileURL('./src/vendure-config.ts'),
             // Points to the location of your Vendure server.
-            api: { host: process.env.APP_URL, port: process.env.APP_PORT ? +process.env.APP_PORT : 3001 },
+            // "auto" = same origin as the dashboard page (production: https://ecommerce.tandem.flights).
+            // Local dev: set APP_URL=http://localhost APP_PORT=3001 in .env.
+            api: { host: process.env.APP_URL || "auto", port: process.env.APP_PORT ? +process.env.APP_PORT : "auto" },
             // When you start the Vite server, your Admin API schema will
             // be introspected and the types will be generated in this location.
             // These types can be used in your dashboard extensions to provide

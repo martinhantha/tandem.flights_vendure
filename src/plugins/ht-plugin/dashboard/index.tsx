@@ -166,7 +166,7 @@ export default defineDashboardExtension({
     login: {
         // Custom logo component for the login page
         logo: {
-            component: () => <img src={IS_LOCAL ? "http://localhost:3001/assets/images/hantha_logo.svg" : "/assets/images/hantha_logo.svg"} alt="Vendure Shop" className="h-24 w-auto max-w-full" />,
+            component: () => <img src="/dashboard/logo.svg" alt="Tandem Flights Sarntal" className="h-24 w-auto max-w-full" />,
         },
         // Custom text/component before the login form
     },
