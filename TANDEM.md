@@ -256,3 +256,20 @@ Staff redemption: Dashboard → Gutscheine → search the code → "Vor Ort eing
 Decided 2026-11-19: no Elasticsearch (Vendure `DefaultSearchPlugin`, Postgres-based) and no Loki, because the
 shared server has 2 vCPU / 3.7 GB RAM. Memory limits: server 640 MB, worker 512 MB, Postgres 384 MB, backup 128 MB.
 Mail: `RESEND_API_KEY` (Resend SMTP) takes precedence over `SMTP_*`.
+
+## First run on Coolify (done 2026-11-20)
+
+Inside the `server` container (`docker exec <server> …`), images contain compiled scripts (no ts-node):
+
+```
+PORT=4100 node dist/populate.js          # countries/zones/taxes; needs a free port (server uses 4000),
+                                         # the process does not exit on its own – stop it once the data is in
+node dist/scripts/tandem-import/seed.js
+docker cp tandema_db0.sql <server>:/tmp/old.sql   # personal data: delete afterwards
+node dist/scripts/tandem-import/import-products.js --dump /tmp/old.sql
+node dist/scripts/tandem-import/import-vouchers.js --dump /tmp/old.sql
+rm /tmp/old.sql
+```
+
+The template migration `V361784541420318` (Vendure 3.6 upgrade for existing DBs) is marked as applied in the
+`migrations` table, because the fresh DB was created by `synchronize`.

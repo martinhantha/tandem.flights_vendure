@@ -10,7 +10,11 @@ export async function getSuperadminContext(app: INestApplicationContext): Promis
     const superAdminUser = await app
         .get(TransactionalConnection)
         .getRepository(User)
-        .findOneOrFail({ where: { identifier: superadminCredentials.identifier } });
+        .findOneOrFail({
+            where: { identifier: superadminCredentials.identifier },
+            // roles + channels are needed, otherwise the context has no permissions (error.forbidden)
+            relations: ['roles', 'roles.channels'],
+        });
     return app.get(RequestContextService).create({
         apiType: 'admin',
         user: superAdminUser,
